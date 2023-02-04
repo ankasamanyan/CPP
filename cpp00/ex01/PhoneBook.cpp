@@ -1,10 +1,14 @@
 #include "PhoneBook.hpp"
 
-int main()
+void	PhoneBook::halp(void)
 {
-	std::string	stringy = "This is stringy";
-	PhoneBook lol;
-	lol.halp();
-	// std::cout << PINK << stringy << RESET_LINE;
-	return 0;
+    
+}
+
+PhoneBook::PhoneBook(/* args */)
+{
+}
+
+PhoneBook::~PhoneBook()
+{
 }

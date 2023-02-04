@@ -1,4 +1,4 @@
-// #include <string>
+#include <string>
 #include <iostream>
 #include "Colours.h"
 
@@ -11,16 +11,8 @@ class PhoneBook
 		PhoneBook(/* args */);
 	~PhoneBook();
 	public:
-		void	halp(void)
-		{
-			std::cout << a << std::endl;
-		}
+		void	halp(void);
 };
 
-PhoneBook::PhoneBook(/* args */)
-{
-}
 
-PhoneBook::~PhoneBook()
-{
-}
+
