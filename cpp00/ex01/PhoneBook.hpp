@@ -8,12 +8,13 @@
 class PhoneBook
 {
 	private:
-		size_t		_inex;
+		// size_t		_inex;
+		Contact		*_Kontakte[8];
 	public:
 		PhoneBook(/* args */);
-	~PhoneBook();
+		~PhoneBook();
 	public:
-		void	halp(void);
+		void	addContact(void);
 };
 
 #endif
