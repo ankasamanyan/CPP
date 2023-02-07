@@ -4,8 +4,10 @@
 int main()
 {
 	PhoneBook	Book;
-	Contact	NotContacts("Cedric Pascal", "Erdelen", "SealRick", "666", "Стол по-немецки тиш!");
+	// Contact	NotContacts("Cedric Pascal", "Erdelen", "SealRick", "666", "Стол по-немецки тиш!");
 
+
+	
 	// NotContacts.printSingleContact();
 	// NotContacts.printNames();
 	Book.addContact();
