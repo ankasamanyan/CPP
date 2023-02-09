@@ -3,7 +3,7 @@
 
 void	instructions()
 {
-		std::cout << SKY << "		+======================+" << RESET_LINE;
+		std::cout << std::endl << SKY << "		+======================+" << RESET_LINE;
 		std::cout << SKY << "		|   " << RESET << "ENTER THE COMMAND" << SKY << "  |" << RESET_LINE;
 		std::cout << SKY << "		+======================+" << RESET_LINE;
 		std::cout << SKY << std::endl << "	+=======+    +==========+    +========+" << RESET_LINE;

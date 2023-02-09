@@ -32,7 +32,9 @@ void	Contact::printSingleContact()
 
 void	Contact::printNames()
 {
-	std::cout << (_firstName.size() > 10 ? (_firstName.substr(0,9)).append(".") : _firstName) << "	| ";
-	std::cout << (_lastName.size() > 10 ? (_lastName.substr(0,9)).append(".") : _lastName) << "	| ";
+	std::cout << (_firstName.size() > 10 ? (_firstName.substr(0,9)).append(".") : _firstName);
+	std::cout << (_firstName.size() > 5 ? " 	| " : "		| ");
+	std::cout << (_lastName.size() > 10 ? (_lastName.substr(0,9)).append(".") : _lastName);
+	std::cout << (_lastName.size() > 5 ? " 	| " : "		| ");
 	std::cout << (_nickName.size() > 10 ? (_nickName.substr(0,9)).append(".") : _nickName) << std::endl;
 }

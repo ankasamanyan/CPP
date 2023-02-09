@@ -65,20 +65,21 @@ void	PhoneBook::searchContact()
 		_Kontakte[i].printNames();
 	}
 	yesContacts("Insert the index", PURPLE);
-	// RE_TERMINAL;
-	// std::cout << std::endl <<  "Insert the index" << std::endl;
 	while (index == 404)
 	{
 		while(input.empty())
 			std::getline(std::cin, input);
 		index = valid(input);
+		if ( index > _amount )
+		{
+			yesContacts("ENTER VALID INDEX", PINK);
+			input.clear();
+			index = 404;
+		}
 	}
-	std::cout << std::endl;
-	yesContacts("YOUR PHONEBOOK", SKY);
-	_Kontakte[index - 1].printSingleContact();
-	// RE_TERMINAL;
+		yesContacts("YOUR PHONEBOOK", SKY);
+		_Kontakte[index - 1].printSingleContact();
 	std::cout << std::endl << std::endl;
-	
 }
 
 size_t	PhoneBook::valid(std::string &str)
