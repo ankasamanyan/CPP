@@ -1,20 +1,28 @@
+NAME = phonebook
+
+SRC = PhoneBook.cpp main.cpp Contact.cpp printMsg.cpp
+
 PURPLE	= "\033[0;34m"
 PINK	= "\033[0;35m"
 RESET	= "\033[0m"
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = PhoneBook.cpp main.cpp Contact.cpp
 RM = rm -f
 
-NAME = phonebook
 
-all:
+all:$(NAME)
+%.o: %.c
+	@$(CC) $(FLAGS) -c $< -o $@
+
+$(NAME): $(OBJ) $(SRC)
 	@$(CC) $(SRC) $(FLAGS) -o $(NAME)
-	@echo $(PURPLE)• ✨ COMPILED ✨ •$(RESET)
+	@echo $(PURPLE)•	✨ COMPILED ✨	•$(RESET)
 
 fclean:
 	@$(RM) $(NAME)
-	@echo $(PINK)• ✨ CLEANED ✨ •$(RESET)
+	@echo $(PINK)•	✨ CLEANED ✨	•$(RESET)
+
+re: fclean all
 
 run: all
 	@./$(NAME)

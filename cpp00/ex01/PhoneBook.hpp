@@ -8,13 +8,22 @@
 class PhoneBook
 {
 	private:
-		// size_t		_inex;
-		Contact		*_Kontakte[8];
+		size_t		_amount;
+		Contact		_Kontakte[8];
+	private:
+		void	pushContacts(Contact &data);
+		void	noContacts();
+		void	yesContacts(std::string stringy, std::string colour);
+		size_t	valid(std::string &str);
 	public:
-		PhoneBook(/* args */);
+		PhoneBook();
 		~PhoneBook();
 	public:
-		void	addContact(void);
+		void	addContact();
+		void	searchContact();
 };
+
+/* helper */
+void	instructions();
 
 #endif

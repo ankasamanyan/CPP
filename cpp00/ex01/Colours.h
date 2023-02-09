@@ -9,10 +9,12 @@
 # define PURPLE			"\033[0;34m"
 # define PINK			"\033[0;35m"
 # define SKY			"\033[0;36m"
-
+# define CPP_IS_PAIN	1
 # define ON_RED 		"\033[41m"
 # define ON_PURPLE		"\033[44m"
 # define ON_PINK		"\033[45m"
 # define RESET_LINE 	RESET << std::endl
+# define RE_TERMINAL	std::cout << "\e[1;1H\e[2J"
+
 
 #endif

@@ -12,11 +12,11 @@ class Contact
 		~Contact();
 
 	private:
-		const std::string _firstName;
-		const std::string _lastName;
-		const std::string _nickName;
-		const std::string _phoneNumber;
-		const std::string _darkestSecret;
+		std::string _firstName;
+		std::string _lastName;
+		std::string _nickName;
+		std::string _phoneNumber;
+		std::string _darkestSecret;
 
 	public:
 		void	printSingleContact();

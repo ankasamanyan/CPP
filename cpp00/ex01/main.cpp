@@ -4,17 +4,21 @@
 int main()
 {
 	PhoneBook	Book;
-	// Contact	NotContacts("Cedric Pascal", "Erdelen", "SealRick", "666", "Стол по-немецки тиш!");
-
-
-	
-	// NotContacts.printSingleContact();
-	// NotContacts.printNames();
-	Book.addContact();
-
-	// std::string	stringy = "This is stringy";
-	// PhoneBook lol;
-	// lol.halp();
-	// std::cout << PINK << stringy << RESET_LINE;
+	std::string	input;
+	RE_TERMINAL;
+	while (CPP_IS_PAIN)
+	{
+		instructions();
+		while(input.empty())
+			std::getline(std::cin, input);
+		RE_TERMINAL;
+		if(input.compare("-a") == 0)
+			Book.addContact();
+		if(input == "-s")
+			Book.searchContact();
+		else if (input.compare("-e") == 0)
+			break;
+		input.clear();
+	}
 	return 0;
 }

@@ -1,6 +1,25 @@
 #include "PhoneBook.hpp"
 
-void	PhoneBook::addContact(void)
+void	PhoneBook::pushContacts(Contact &data)
+{
+	size_t i = _amount;
+	if (i == 8)
+		i--;
+	while (i > 0)
+	{
+		_Kontakte[i] = _Kontakte[i - 1];
+		i--;
+	}
+	_Kontakte[0] = data;
+	_amount++;
+}
+
+void	PhoneBook::noContacts()
+{
+	yesContacts("NO CONTACTS IN YOUR PHONEBOOK", PINK);
+}
+
+void	PhoneBook::addContact()
 {
 	std::string	name;
 	std::string	surname;
@@ -8,38 +27,81 @@ void	PhoneBook::addContact(void)
 	std::string	number;
 	std::string	secret;
 
-    std::cout << PINK << "Gimme Name!" << RESET_LINE;
-	std::getline(std::cin, name);
-	// std::cin >> name;
-	// std::cout << SKY << "Dis da temp " << RESET << temp << std::endl;
-    std::cout << PINK << "Gimme Surname!" << RESET_LINE;
-	std::getline(std::cin, surname);
-	// std::cin >> surname;
-	// std::cout << SKY << "Dis da temp " << RESET << temp << std::endl;
-    std::cout << PINK << "Gimme Nickname!" << RESET_LINE;
-	std::getline(std::cin, nickname);
-	// std::cin >> nickname;
-	// std::cout << SKY << "Dis da temp " << RESET << temp << std::endl;
-    std::cout << PINK << "Gimme Number!" << RESET_LINE;
-	std::getline(std::cin, number);
-	// std::cin >> number;
-	// std::cout << SKY << "Dis da temp " << RESET << temp << std::endl;
-    std::cout << PINK << "Gimme Secret!" << RESET_LINE;
-	std::getline(std::cin, secret);
-	// std::cin >> secret;			//just takes first word
-	// std::cout << SKY << "Dis da temp " << RESET << temp << std::endl;
+	yesContacts("Enter Name", PINK);
+	while(name.empty())
+		std::getline(std::cin, name);
+	yesContacts("Enter Surname", PINK);
+	while(surname.empty())
+		std::getline(std::cin, surname);
+	yesContacts("Enter Nickname", PINK);
+	while(nickname.empty())
+		std::getline(std::cin, nickname);
+	yesContacts("Enter Number", PINK);
+	while(number.empty())
+		std::getline(std::cin, number);
+	yesContacts("Enter Your Darkest Secret", PINK);
+	while(secret.empty())
+		std::getline(std::cin, secret);
 
 	Contact	kontakt(name, surname, nickname, number, secret);
-	_Kontakte[0] = &kontakt;
-	_Kontakte[0]->printSingleContact();
-
-	//how do I put contact info to class contact
+	pushContacts(kontakt);
+	// _Kontakte[0].printSingleContact();
 }
 
-PhoneBook::PhoneBook(/* args */)
+void	PhoneBook::searchContact()
 {
-	// (void)_Kontakte;
-	std::cout << YELLOW << "halp" << RESET_LINE;
+	std::string	input;
+	size_t		index = 404;
+	if(!_amount)
+	{
+		noContacts();
+		return ;
+	}
+	else
+		yesContacts("YOUR PHONEBOOK", PINK);
+	for (size_t i = 0; i < _amount && i < 8; i++)
+	{
+		std::cout << PURPLE << "  " << i + 1 << RESET << "	|";
+		_Kontakte[i].printNames();
+	}
+	yesContacts("Insert the index", PURPLE);
+	// RE_TERMINAL;
+	// std::cout << std::endl <<  "Insert the index" << std::endl;
+	while (index == 404)
+	{
+		while(input.empty())
+			std::getline(std::cin, input);
+		index = valid(input);
+	}
+	std::cout << std::endl;
+	yesContacts("YOUR PHONEBOOK", SKY);
+	_Kontakte[index - 1].printSingleContact();
+	// RE_TERMINAL;
+	std::cout << std::endl << std::endl;
+	
+}
+
+size_t	PhoneBook::valid(std::string &str)
+{
+	if (str.size() != 1)
+		return (404);
+	else if (str[0] <= '0' || str[0] > '8')
+		return (404);
+	else
+		return(str[0] - '0');
+}
+
+void	PhoneBook::yesContacts(std::string stringy, std::string colour)
+{
+	std::cout << std::endl << colour << "+=================================================+" << RESET_LINE;
+	std::cout << RESET << (stringy.size() > 16 ? "	" : "		");
+	std::cout<< "..." << stringy << "..." << RESET_LINE;
+	std::cout << colour << "+=================================================+" << std::endl << RESET_LINE;
+}
+
+PhoneBook::PhoneBook()
+{
+	_amount = 0;
 }
 
 PhoneBook::~PhoneBook()
