@@ -6,10 +6,6 @@
 
 class Contact
 {
-	public:
-		Contact(void);
-		Contact(const std::string name, const std::string surname, const std::string nickname, const std::string number, const std::string secret);
-		~Contact();
 
 	private:
 		std::string _firstName;
@@ -17,6 +13,12 @@ class Contact
 		std::string _nickName;
 		std::string _phoneNumber;
 		std::string _darkestSecret;
+	private:
+		std::string appendSpaces(std::string stringy);
+	public:
+		Contact(void);
+		Contact(const std::string name, const std::string surname, const std::string nickname, const std::string number, const std::string secret);
+		~Contact();
 
 	public:
 		void	printSingleContact();
