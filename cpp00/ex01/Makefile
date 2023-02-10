@@ -9,7 +9,6 @@ CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-
 all:$(NAME)
 %.o: %.c
 	@$(CC) $(FLAGS) -c $< -o $@
