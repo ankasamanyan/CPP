@@ -11,7 +11,8 @@ void	PhoneBook::pushContacts(Contact &data)
 		i--;
 	}
 	_Kontakte[0] = data;
-	_amount++;
+	if(_amount < 8)
+		_amount++;
 }
 
 void	PhoneBook::noContacts()
@@ -45,7 +46,6 @@ void	PhoneBook::addContact()
 
 	Contact	kontakt(name, surname, nickname, number, secret);
 	pushContacts(kontakt);
-	// _Kontakte[0].printSingleContact();
 }
 
 void	PhoneBook::searchContact()
