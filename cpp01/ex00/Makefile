@@ -1,6 +1,6 @@
 NAME = brainzzzzzz
 
-SRC = main.cpp newZombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 PURPLE	= "\033[0;34m"
 PINK	= "\033[0;35m"
@@ -23,5 +23,11 @@ fclean:
 
 re: fclean all
 
+git:
+	git add .
+	@read -p "Enter the commit message: " halp; \
+	git commit -m "$$halp"
+	git push
+	@echo "$(PURPLE)git auto add & push with message performed.$(RESET)"
 run: all
 	@./$(NAME)
