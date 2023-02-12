@@ -1,4 +1,13 @@
-#include "PhoneBook.hpp"
+# include "PhoneBook.hpp"
+
+PhoneBook::PhoneBook()
+{
+	_amount = 0;
+}
+
+PhoneBook::~PhoneBook()
+{
+}
 
 void	PhoneBook::pushContacts(Contact &data)
 {
@@ -98,13 +107,4 @@ void	PhoneBook::yesContacts(std::string stringy, std::string colour)
 	std::cout << RESET << (stringy.size() > 16 ? "	" : "		");
 	std::cout<< "..." << stringy << "..." << RESET_LINE;
 	std::cout << colour << "+=================================================+" << std::endl << RESET_LINE;
-}
-
-PhoneBook::PhoneBook()
-{
-	_amount = 0;
-}
-
-PhoneBook::~PhoneBook()
-{
 }

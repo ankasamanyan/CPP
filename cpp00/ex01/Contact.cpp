@@ -19,15 +19,6 @@ void	Contact::printSingleContact()
 	std::cout << SKY << "Nickname:	|	" << RESET << _nickName << RESET_LINE;
 	std::cout << SKY << "Phone Number:	|	" << RESET << _phoneNumber << RESET_LINE;
 	std::cout << SKY << "Darkest secret:	|	" << RESET << _darkestSecret << RESET_LINE;
-	// std::cout << (_firstName.size() > 10 ? (_firstName.substr(0,9)).append(".") : _firstName) << RESET_LINE;
-	// std::cout << SKY << "Last Name:	|	" << RESET;
-	// std::cout << (_lastName.size() > 10 ? (_lastName.substr(0,9)).append(".") : _lastName) << RESET_LINE;
-	// std::cout << SKY << "Nickname:	|	" << RESET;
-	// std::cout << (_nickName.size() > 10 ? (_nickName.substr(0,9)).append(".") : _nickName) << RESET_LINE;
-	// std::cout << SKY << "Phone Number:	|	" << RESET;
-	// std::cout << (_phoneNumber.size() > 10 ? (_phoneNumber.substr(0,9)).append(".") : _phoneNumber) << RESET_LINE;
-	// std::cout << SKY << "Darkest secret:	|	" << RESET;
-	// std::cout << (_darkestSecret.size() > 10 ? (_darkestSecret.substr(0,9)).append(".") : _darkestSecret) << RESET_LINE;
 }
 
 void	Contact::printNames()
