@@ -15,11 +15,11 @@ all:$(NAME)
 
 $(NAME): $(OBJ) $(SRC)
 	@$(CC) $(SRC) $(FLAGS) -o $(NAME)
-	@echo $(PURPLE)•	✨ COMPILED ✨	•$(RESET)
+	@echo $(PURPLE)"•	✨ COMPILED ✨	•\n"$(RESET)
 
 fclean:
 	@$(RM) $(NAME)
-	@echo $(PINK)•	✨ CLEANED ✨	•$(RESET)
+	@echo $(PINK)"•	✨ CLEANED ✨	•"$(RESET)
 
 re: fclean all
 

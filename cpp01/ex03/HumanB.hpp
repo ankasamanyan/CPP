@@ -2,6 +2,7 @@
 	#define HUMAN_B_HPP
 #include <iostream>
 #include "Weapon.hpp"
+#include "Colours.h"
 
 class HumanB
 {
@@ -10,6 +11,8 @@ class HumanB
 		Weapon		*_weapon;
 	public:
 		void	setWeapon(Weapon &weapony);
+		void    attack(void);
+
 	public:
 		HumanB(std::string name);
 		~HumanB();

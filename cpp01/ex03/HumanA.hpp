@@ -2,6 +2,7 @@
 	#define HUMAN_A_HPP
 #include <iostream>
 #include "Weapon.hpp"
+#include "Colours.h"
 
 class HumanA
 {
