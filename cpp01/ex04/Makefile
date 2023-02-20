@@ -31,4 +31,4 @@ git:
 	@echo $(PURPLE) ✨All added, commited and pushed✨ $(RESET)
 
 run: all
-	@./$(NAME) text.txt ghj fghj
+	@./$(NAME) Makefile  SRC HALPPPPP
