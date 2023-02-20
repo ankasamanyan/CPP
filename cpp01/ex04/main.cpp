@@ -26,7 +26,7 @@ bool	wrongInput(int argc, char **argv, std::ifstream	&file/* , std::ofstream &ne
 		printMsg("No such file or directory", YELLOW);
 		return (true);
 	}
-	newFile = file.
+	// newFile = file.
 	return (false);	
 }
 
@@ -35,7 +35,7 @@ int main(int argc, char  *argv[])
 	std::ifstream	file;
 	std::ofstream	newFile;
 	
-	if (wrongInput(argc, argv, file, newFile))
+	if (wrongInput(argc, argv, file/* , newFile */))
 		return (0);
 	// std::ifstream file = argv[1];
 
