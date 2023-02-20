@@ -4,13 +4,13 @@
 
 void	printMsg(std::string stringy, std::string colour)
 {
-	std::cout << std::endl << colour << "+=================================================+" << RESET_LINE;
+	std::cout << std::endl << colour << "+" << std::string(49, '=') << "+" << RESET_LINE;
 	std::cout << RESET << (stringy.size() > 16 ? "	" : "		");
 	std::cout<< "..." << stringy << "..." << RESET_LINE;
-	std::cout << colour << "+=================================================+" << std::endl << RESET_LINE;
+	std::cout << colour << "+" << std::string(49, '=') << "+" << RESET_LINE;
 }
 
-bool	wrongInput(int argc, char **argv, std::ifstream	&file/* , std::ofstream &newFile */)
+bool	wrongInput(int argc, char **argv, std::ifstream	&file)
 {
 	(void)argv;
 	(void)file;
@@ -26,7 +26,6 @@ bool	wrongInput(int argc, char **argv, std::ifstream	&file/* , std::ofstream &ne
 		printMsg("No such file or directory", YELLOW);
 		return (true);
 	}
-	// newFile = file.
 	return (false);	
 }
 
@@ -34,10 +33,14 @@ int main(int argc, char  *argv[])
 {
 	std::ifstream	file;
 	std::ofstream	newFile;
+
 	
-	if (wrongInput(argc, argv, file/* , newFile */))
+	if (wrongInput(argc, argv, file))
 		return (0);
-	// std::ifstream file = argv[1];
+	newFile.open(std::string(argv[1]).append(".replace"));
+
+
+	// std::cout << std::string (argv[1]).append(".replace") << std::endl;
 
 	return (0);
 }
