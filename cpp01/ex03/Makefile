@@ -15,7 +15,7 @@ all:$(NAME)
 
 $(NAME): $(OBJ) $(SRC)
 	@$(CC) $(SRC) $(FLAGS) -o $(NAME)
-	@echo $(PURPLE)"•	✨ COMPILED ✨	•\n"$(RESET)
+	@echo $(PURPLE)"•	✨ COMPILED ✨	•"$(RESET)
 
 fclean:
 	@$(RM) $(NAME)
