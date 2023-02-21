@@ -4,7 +4,7 @@ int main(void)
 {
 	Zombie	*alottaZombies;
 
-	alottaZombies = zombieHorde(14, "Bawb");
+	alottaZombies = zombieHorde(9, "Bawb");
 	delete []alottaZombies;
 	return (0);
 }
