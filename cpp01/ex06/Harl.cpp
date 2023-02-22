@@ -55,35 +55,27 @@ void    Harl::complain( std::string level )
 		"WARNING",
 		"ERROR"
 	};
-	
-	for (size_t i = 0; i < 4; i++)
+	size_t i = 0;
+	for ( ; i < 4; i++)
 	{
 		if (level.compare(complains[i]) == 0)
 		{
 			switch (i)
 			{
 				case 0:
-					while (i < 4)
-						(this->*complainTingy[i++])();
-					return;
+					(this->*complainTingy[0])();
 				case 1:
-					while (i < 4)
-						(this->*complainTingy[i++])();
-					return;
+					(this->*complainTingy[1])();
 				case 2:
-					while (i < 4)
-						(this->*complainTingy[i++])();
-					return;
+					(this->*complainTingy[2])();
 				case 3:
-					while (i < 4)
-						(this->*complainTingy[i++])();
-					return;
+					(this->*complainTingy[3])();
 			}
 			break;
 		}
 	}
+	if (i >= 4)
 		printMsg("Complaining about problems", PURPLE);
-	
 }
 
 void	printMsg(std::string stringy, std::string colour)
