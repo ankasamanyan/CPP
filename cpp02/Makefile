@@ -15,11 +15,12 @@ all:$(NAME)
 
 $(NAME): $(OBJ) $(SRC)
 	@$(CC) $(SRC) $(FLAGS) -o $(NAME)
-	@echo $(PURPLE)"•    ✨ COMPILED ✨    •"$(RESET)
+	@echo $(PURPLE)"•    ✨ COMPILED ✨    •"$(RESET) && say -v Milena "Your stupid program is Compiled!"
+# @say -v Milena  "I'm glad to tell you, that your code is successfully compiled" 
 
 fclean:
 	@$(RM) $(NAME)
-	@echo $(PINK)"•     ✨ CLEANED ✨    •"$(RESET)
+	@echo $(PINK)"•     ✨ CLEANED ✨    •"$(RESET) && say -v Milena "Your stupid program is cleaned!"
 
 re: fclean all
 
