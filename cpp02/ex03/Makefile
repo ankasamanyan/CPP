@@ -1,6 +1,6 @@
 NAME = fixed
 
-SRC = main.cpp Fixed.cpp Point.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 PURPLE	= "\033[0;34m"
 PINK	= "\033[0;35m"

@@ -3,15 +3,6 @@
 
 int main( void ) 
 {
-	Fixed a;
-	Point sdf;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+	bsp(Point(2, 0), Point(0, 0), Point(0, 2), Point(10, 10));
 	return 0;
 }

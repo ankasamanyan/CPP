@@ -14,9 +14,19 @@ Point::Point(float const x, float const y):_x(Fixed(x)), _y(Fixed(y))
 
 Point &Point::operator=(Point &copy)
 {
-	return(copy);
+	return (copy);
 }
 
 Point::~Point()
 {
+}
+
+Fixed	Point::getX() const
+{
+	return (_x);
+}
+
+Fixed	Point::getY() const
+{
+	return (_y);
 }
