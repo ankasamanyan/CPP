@@ -11,7 +11,7 @@ class Catto: public Animal
 		Catto(const Catto &copy);
 		Catto	&operator=(const Catto &copy);
 		~Catto();
-		//**
+		/* member function */
 		void	makeSound() const;
 };
 

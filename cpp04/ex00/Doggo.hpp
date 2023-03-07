@@ -11,7 +11,7 @@ class Doggo: public Animal
 		Doggo(const Doggo &copy);
 		Doggo	&operator=(const Doggo &copy);
 		~Doggo();
-
+		/* member function */
 		void	makeSound() const;
 };
 

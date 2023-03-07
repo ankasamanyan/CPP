@@ -3,11 +3,13 @@
 Animal::Animal()
 {
 	_type = "Just animal";
+	std::cout << SKY << "Default Animal constructor called" << RESET_LINE;
 }
 
 Animal::Animal(const Animal &copy)
 {
 	*this = copy;
+	std::cout << SKY << "Copy Animal constructor called" << RESET_LINE;
 }
 
 Animal	&Animal::operator=(const Animal &copy)
@@ -18,6 +20,7 @@ Animal	&Animal::operator=(const Animal &copy)
 
 Animal::~Animal()
 {
+	std::cout << SKY << "Animal destructor called" << RESET_LINE;
 }
 
 const	std::string &Animal::getType() const
