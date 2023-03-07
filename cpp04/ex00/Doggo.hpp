@@ -8,7 +8,11 @@ class Doggo: public Animal
 
 	public:
 		Doggo();
+		Doggo(const Doggo &copy);
+		Doggo	&operator=(const Doggo &copy);
 		~Doggo();
+
+		void	makeSound() const;
 };
 
 #endif

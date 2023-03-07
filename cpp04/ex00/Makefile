@@ -1,6 +1,6 @@
-NAME = ClapTrap
+NAME = animals
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp Catto.cpp Animal.cpp Doggo.cpp WrongAnimal.cpp WrongCatto.cpp
 
 PURPLE	= "\033[0;34m"
 PINK	= "\033[0;35m"
