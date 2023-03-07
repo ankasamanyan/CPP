@@ -3,11 +3,13 @@
 WrongCatto::WrongCatto()
 {
 	_type = "WrongCatto";
+	std::cout << PURPLE << "Default WrongCatto constructor called" << RESET_LINE;
 }
 
 WrongCatto::WrongCatto(const WrongCatto &copy)
 {
 	*this = copy;
+	std::cout << PURPLE << "Copy WrongCatto constructor called" << RESET_LINE;
 }
 
 WrongCatto	&WrongCatto::operator=(const WrongCatto &copy)
@@ -18,6 +20,7 @@ WrongCatto	&WrongCatto::operator=(const WrongCatto &copy)
 
 WrongCatto::~WrongCatto()
 {
+	std::cout << PURPLE << "WrongCatto destructor called" << RESET_LINE;
 }
 
 void	WrongCatto::makeSound() const
