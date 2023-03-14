@@ -1,6 +1,6 @@
-NAME = fixed
+NAME = animals
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp AMateria.cpp Cure.hpp Ice.cpp
 
 PURPLE	= "\033[0;34m"
 PINK	= "\033[0;35m"
@@ -15,11 +15,11 @@ all:$(NAME)
 
 $(NAME): $(OBJ) $(SRC)
 	@$(CC) $(SRC) $(FLAGS) -o $(NAME)
-	@echo $(PURPLE)"•    ✨ COMPILED ✨    •"$(RESET) && say -v Milena "Your stupid program is Compiled!"
+	@echo $(PURPLE)•	✨ COMPILED ✨	•$(RESET)
 
 fclean:
 	@$(RM) $(NAME)
-	@echo $(PINK)"•     ✨ CLEANED ✨    •"$(RESET) && say -v Milena "Your stupid program is cleaned!"
+	@echo $(PINK)•	✨ CLEANED ✨	•$(RESET)
 
 re: fclean all
 

@@ -9,7 +9,7 @@ RM = rm -f
 NAME = megaphone
 
 all:$(NAME)
-%.o: %.c
+%.o: %.cpp
 	@$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) $(SRC)
