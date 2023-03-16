@@ -4,13 +4,7 @@
 
 class IMateriaSource
 {
-	private:
-
 	public:
-		IMateriaSource();
-		IMateriaSource(const IMateriaSource &copy);
-		IMateriaSource &operator=(const IMateriaSource &copy);
-		~IMateriaSource();
 		/* member functions */
 		virtual ~IMateriaSource() {}
 		virtual void learnMateria(AMateria*) = 0;

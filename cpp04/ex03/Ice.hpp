@@ -2,7 +2,7 @@
 	#define ICE_HPP
 #include "AMateria.hpp"
 
-class Ice: protected AMateria
+class Ice: public AMateria
 {
 	private:
 		std::string		_type;
@@ -14,7 +14,6 @@ class Ice: protected AMateria
 		/* member function */
 		AMateria	*clone() const;
 		void 		use(ICharacter &target);
-
 };
 
 

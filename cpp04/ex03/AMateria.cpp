@@ -27,17 +27,13 @@ AMateria::~AMateria()
 
 	/* member functions */
 
-std::string const	&getType() const
+std::string const	&AMateria::getType() const
 {
 	return(_type);
 }
 
-virtual AMateria	*AMateria::clone() const
-{
-	return(new AMateria);
-}
 
 void 		AMateria::use(ICharacter &target)
 {
-	// std::cout << PINK << "* Your target is " << SKY << target << PINK << " *" << RESET_LINE;
+	std::cout << PINK << "* Your target is " << SKY << target.getName() << PINK << " *" << RESET_LINE;
 }

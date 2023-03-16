@@ -30,5 +30,5 @@ AMateria	*Cure::clone() const
 
 void 	Cure::use(ICharacter &target)
 {
-	std::cout << PINK << "* heals "<< SKY << target << PINK << "'s wounds *" << RESET_LINE;
+	std::cout << PINK << "* heals "<< SKY << target.getName() << PINK << "'s wounds *" << RESET_LINE;
 }
