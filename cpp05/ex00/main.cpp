@@ -14,9 +14,8 @@ int main()
 	{
 		std::cout << e.what() << std::endl << std::endl;
 	}
-	std::cout << std::string(59, '=') << RESET_LINE;
-	std::cout << "Trying to instanciate a bureaucrat with grade 0 now:" << std::endl;
-	std::cout << std::string(59, '=') << RESET_LINE ;
+	
+	std::cout << "Trying to instanciate a bureaucrat with grade 0 now:" << RESET_LINE;
 	try
 	{
 		Bureaucrat lucy("Lucy", 0);

@@ -6,7 +6,7 @@
 class Bureaucrat
 {
 	private:
-		const std::string	_name; //& ?
+		const std::string	_name;
 		int					_grade;
 	public:
 		Bureaucrat();
@@ -20,7 +20,7 @@ class Bureaucrat
 		void				setGrade(int grade);
 		void				increaseGrade();
 		void				decreaseGrade();
-
+		/* exceptions */
 		class	GradeTooHighException: public std::exception
 		{
 			public:
