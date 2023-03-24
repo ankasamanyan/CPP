@@ -69,7 +69,6 @@ void	AForm::beSigned(Bureaucrat &borya)
 		_signed = true;
 	else
 		throw AForm::GradeTooLowException();
-
 }
 
 /* exceptons */
