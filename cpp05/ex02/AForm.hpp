@@ -12,10 +12,10 @@ class AForm
 		const int			_gradeExec;
 	public:
 		AForm();
-		AForm(const std::string &name, int sign, int exec);
-		AForm(const AForm &copy);
-		AForm &operator=(const AForm &copy);
-		~AForm();
+		virtual AForm(const std::string &name, int sign, int exec);
+		virtual AForm(const AForm &copy);
+		virtual AForm &operator=(const AForm &copy);
+		virtual ~AForm();
 		/* member functions */
 		const std::string	getName();
 		int					getGradeSign();
