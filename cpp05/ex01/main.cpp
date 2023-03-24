@@ -1,88 +1,35 @@
 #include "Bureaucrat.hpp"
-
+#include "Form.hpp"
+#include <iostream>
 int main()
 {
-	Bureaucrat hermes("Hermes", 36);
-	std::cout << "I just instanciated " << hermes << std::endl << std::endl;
-	
-	std::cout << "Trying to instanciate a bureaucrat with grade 151 now:" << std::endl;
+	Form tmp("C34", 98, 23);
+	Form tmp2(tmp);
+	std::cout << "Trying to create a form with a too low grade!" << std::endl;
 	try
 	{
-		Bureaucrat bob("Bob", 151);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl << std::endl;
-	}
-	
-	std::cout << "Trying to instanciate a bureaucrat with grade 0 now:" << RESET_LINE;
-	try
-	{
-		Bureaucrat lucy("Lucy", 0);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl << std::endl;
-	}
-	
-	std::cout << "Trying to instanciate two bureaucrats with grade 1 and 150 respectively now:" << std::endl << std::endl;
-	try
-	{
-		Bureaucrat balthazar("Balthazar", 1);
-		Bureaucrat jim("Jim", 150);
+		Form tmp3("OHNO", 151, 23);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	
-	std::cout << "This time doing it for real:" << std::endl;
-	Bureaucrat balthazar("Balthazar", 1);
-	Bureaucrat jim("Jim", 150);
-	std::cout << "Here they are:" << std::endl;
-	std::cout << balthazar << std::endl;
-	std::cout << jim << std::endl << std::endl;
-	
-	std::cout << "Trying to increment Balthazar:" << std::endl;
+	std::cout << std::endl << "Trying to create a form with a too high grade!" << std::endl;
 	try
 	{
-		balthazar.increaseGrade();
+		Form tmp3("OHNO", 98, 0);
 	}
-	catch(const std::exception& e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << balthazar << std::endl << std::endl;
+	Bureaucrat billy("Billy", 98);
+	Bureaucrat bobby("Bobby", 99);
+	std::cout << std::endl << tmp << std::endl;
+	std::cout << tmp2 << std::endl;
+	bobby.signForm(tmp);
+	billy.signForm(tmp);
+	tmp2 = tmp;
+	std::cout << tmp2 << std::endl;
 	
-	std::cout << "Trying to decrement Jim:" << std::endl;
-	try
-	{
-		jim.decreaseGrade();
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << jim << std::endl << std::endl;
-	
-	std::cout << "Trying to increment Jim:" << std::endl;
-	try
-	{
-		jim.increaseGrade();
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << jim << std::endl << std::endl;
-	std::cout << "Trying to decrement Balthazar:" << std::endl;
-	try
-	{
-		balthazar.decreaseGrade();
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << balthazar << std::endl << std::endl;
 }

@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Colours.h"
 
+class Form;
 class Bureaucrat
 {
 	private:
@@ -20,6 +21,7 @@ class Bureaucrat
 		void				setGrade(int grade);
 		void				increaseGrade();
 		void				decreaseGrade();
+		void				signForm(Form &form);
 		/* exceptions */
 		class	GradeTooHighException: public std::exception
 		{

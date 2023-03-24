@@ -19,12 +19,11 @@ class Form
 
 		/* member functions */
 		const std::string	getName();
-		int			getGradeSign();
-		int			getGradeExec();
+		int					getGradeSign();
+		int					getGradeExec();
 		bool				getSigned();
 		/*  */
 		void				beSigned(Bureaucrat &borya);
-		void				signForm(Bureaucrat &borya, Form &form);
 		/* exceptions */
 		class	GradeTooHighException: public std::exception
 		{
