@@ -10,7 +10,8 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):AForm(
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &copy)
 {
-	
+	_target = copy._target;
+	return(*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
