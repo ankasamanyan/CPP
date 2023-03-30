@@ -84,11 +84,10 @@ void	Bureaucrat::executeForm(Form const & form)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-	 if (_grade <= form.getGradeSign() && _grade <= form.getGradeExec() && form.getSigned())
-		// _signed = true;
-	else
-		throw AForm::GradeTooLowException();
+	//  if (_grade <= form.getGradeSign() && _grade <= form.getGradeExec() && form.getSigned())
+	// 	// _signed = true;
+	// else
+	// 	throw AForm::GradeTooLowException();
 }
 
 
