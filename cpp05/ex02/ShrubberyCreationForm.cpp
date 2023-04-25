@@ -18,6 +18,11 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return(*this);
 }
 
+void	ShrubberyCreationForm::executeTatsaechlich(const Bureaucrat &borya) const
+{
+
+}
+
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }

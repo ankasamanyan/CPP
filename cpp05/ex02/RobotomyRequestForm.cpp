@@ -14,9 +14,9 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &c
 	return(*this);
 }
 
-void	PresidentialPardonForm::executeTatsaechlich(const Bureaucrat &borya) const
+void	RobotomyRequestForm::executeTatsaechlich(const Bureaucrat &borya) const
 {
-	
+
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
