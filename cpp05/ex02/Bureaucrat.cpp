@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -56,7 +56,7 @@ void	Bureaucrat::decreaseGrade()
 	setGrade(_grade + 1);
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
@@ -70,7 +70,7 @@ void	Bureaucrat::signForm(Form &form)
 	std::cout << SKY << _name << PINK << " signed '" << SKY << form.getName() << PINK << "' form" << RESET_LINE;
 }
 
-void	Bureaucrat::executeForm(Form const & form)
+void	Bureaucrat::executeForm(AForm const & form)
 {
 	/* You have to check that the form is signed
 	 and that the grade of the bureaucrat attempting to execute the form 
@@ -78,7 +78,7 @@ void	Bureaucrat::executeForm(Form const & form)
 	 Otherwise, throw an appropriate excep- tion. */
 	try
 	{
-		form.beSigned(*this);
+		form.execute(*this);
 	}
 	catch(const std::exception& e)
 	{

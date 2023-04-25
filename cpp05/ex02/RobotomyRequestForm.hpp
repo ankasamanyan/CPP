@@ -12,6 +12,9 @@ class RobotomyRequestForm: public AForm
 		RobotomyRequestForm(const RobotomyRequestForm &copy);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &copy);
 		~RobotomyRequestForm();
+		/* */
+		void	executeTatsaechlich(const Bureaucrat &borya) const;
+	
 };
 
 

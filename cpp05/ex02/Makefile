@@ -1,6 +1,6 @@
 NAME = bureaucrat
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = *.cpp
 
 PURPLE	= "\033[0;34m"
 PINK	= "\033[0;35m"

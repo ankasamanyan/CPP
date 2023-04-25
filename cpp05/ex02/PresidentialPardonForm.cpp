@@ -17,3 +17,10 @@ PresidentialPardonForm PresidentialPardonForm::operator=(const PresidentialPardo
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
+
+/* */
+void	PresidentialPardonForm::executeTatsaechlich(const Bureaucrat &borya) const
+{
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << RESET_LINE;
+	std::cout << borya.getNAme << " executed" << getName() << RESET_LINE;
+}
