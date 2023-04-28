@@ -26,5 +26,17 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 /* */
 void	ShrubberyCreationForm::executeTatsaechlich(const Bureaucrat &borya) const
 {
-
+	std::ofstream outfile(_target + "_shrubbery");
+	if (outfile.is_open())
+	{
+		outfile <<   ",d" << std::endl                                   
+					<<"88" << std::endl                                      
+				  <<"MM88MMM 8b,dPPYba,  ,adPPYba,  ,adPPYba," << std::endl  
+					<<"88    88P'   'Y8 a8P_____88 a8P_____88" << std::endl  
+					<<"88    88         8PP''''''' 8PP'''''''" << std::endl  
+					<<"88,   88         '8b,   ,aa '8b,   ,aa" << std::endl  
+					<<"'Y888 88          `'Ybbd8''  `'Ybbd8''" << std::endl;
+		outfile.close(); 
+		// std::cout << borya.getName() << " executed " << this->getName() << " on "<< this->_target + "_shrubbery" << "!" << std::endl;
+	}
 }
