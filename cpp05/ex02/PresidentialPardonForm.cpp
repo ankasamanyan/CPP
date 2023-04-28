@@ -3,6 +3,9 @@
 PresidentialPardonForm::PresidentialPardonForm(): AForm("Presidentioal pardon", 25, 5)
 {
 }
+PresidentialPardonForm::PresidentialPardonForm(): AForm("Presidentioal pardon", 25, 5), _target(target)
+{
+}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy): AForm(copy);
 {

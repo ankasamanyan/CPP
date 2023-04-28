@@ -4,6 +4,10 @@ RobotomyRequestForm::RobotomyRequestForm():AForm("Robotomy request", 72, 45)
 {
 }
 
+RobotomyRequestForm::RobotomyRequestForm():AForm("Robotomy request", 72, 45), _target(target)
+{
+}
+
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):AForm(copy)
 {
 }
@@ -14,11 +18,13 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &c
 	return(*this);
 }
 
-void	RobotomyRequestForm::executeTatsaechlich(const Bureaucrat &borya) const
-{
-
-}
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
+}
+
+/* */
+void	RobotomyRequestForm::executeTatsaechlich(const Bureaucrat &borya) const
+{
+
 }
