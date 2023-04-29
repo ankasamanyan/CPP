@@ -19,18 +19,18 @@ int main()
 	std::cout << caroline << std::endl;
 	std::cout << std::string(80, '-') << std::endl;
 	ShrubberyCreationForm form1("home");
-	// ShrubberyCreationForm form2(form1);
+	ShrubberyCreationForm form2(form1);
 	RobotomyRequestForm form3("Bender");
-	// RobotomyRequestForm form4(form3);
+	RobotomyRequestForm form4(form3);
 	PresidentialPardonForm form5("Santa");
 	PresidentialPardonForm form6;
 	form6 = form5;
 	std::cout << "These are our forms:" << std::endl;
 	std::cout << form1 << std::endl;
-	// std::cout << form2 << std::endl << std::endl;
+	std::cout << form2 << std::endl << std::endl;
 
 	std::cout << form3 << std::endl;
-	// std::cout << form4 << std::endl << std::endl;
+	std::cout << form4 << std::endl << std::endl;
 
 	std::cout << form5 << std::endl;
 	std::cout << form6 << std::endl;
@@ -53,9 +53,9 @@ int main()
 	frank.signForm(form5);
 	std::cout << std::string(80, '-') << std::endl;
 	bill.executeForm(form1);
-	// bill.executeForm(form2);
+	bill.executeForm(form2);
 	bill.executeForm(form3);
-	// bill.executeForm(form4);
+	bill.executeForm(form4);
 	bill.executeForm(form5);
 	bill.executeForm(form6);
 	std::cout << std::string(80, '-') << std::endl;

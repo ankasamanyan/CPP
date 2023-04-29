@@ -11,7 +11,9 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string	&target):
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy): AForm(copy)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy): 
+	AForm(copy.getName(), 25, 5),
+	_target(copy._target)
 {
 }
 
@@ -28,6 +30,6 @@ PresidentialPardonForm::~PresidentialPardonForm()
 /* */
 void	PresidentialPardonForm::execute(const Bureaucrat &borya) const
 {
-	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << RESET_LINE;
-	std::cout << borya.getNAme() << " executed" << getName() << RESET_LINE;
+	std::cout << YELLOW << _target << PINK << " has been pardoned" << SKY << " by Zaphod Beeblebrox" << RESET_LINE;
+	std::cout << SKY <<borya.getNAme() << PINK << " executed " << SKY << getName() << RESET_LINE;
 }

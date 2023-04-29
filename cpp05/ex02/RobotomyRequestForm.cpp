@@ -11,7 +11,9 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string	&target):
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy): AForm(copy)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):
+	AForm(copy.getName(), 72, 45),
+	_target(copy._target)
 {
 }
 
@@ -29,5 +31,5 @@ RobotomyRequestForm::~RobotomyRequestForm()
 /* */
 void	RobotomyRequestForm::execute(const Bureaucrat &borya) const
 {
-	std::cout << borya.getNAme() << " executed" << getName() << RESET_LINE;
+	std::cout << SKY <<borya.getNAme() << PINK << " executed " << SKY << getName() << RESET_LINE;
 }
