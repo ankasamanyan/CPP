@@ -1,9 +1,13 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(): AForm("Presidentioal pardon", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(): 
+	AForm("Presidentioal pardon", 25, 5)
 {
 }
-PresidentialPardonForm::PresidentialPardonForm(): AForm("Presidentioal pardon", 25, 5), _target(target)
+
+PresidentialPardonForm::PresidentialPardonForm(): 
+	AForm("Presidentioal pardon", 25, 5),
+	_target(target)
 {
 }
 
