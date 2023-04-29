@@ -72,10 +72,6 @@ void	Bureaucrat::signForm(AForm &form)
 
 void	Bureaucrat::executeForm(AForm const & form)
 {
-	/* You have to check that the form is signed
-	 and that the grade of the bureaucrat attempting to execute the form 
-	 is high enough. 
-	 Otherwise, throw an appropriate excep- tion. */
 	try
 	{
 		form.execute(*this);
@@ -84,10 +80,6 @@ void	Bureaucrat::executeForm(AForm const & form)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	//  if (_grade <= form.getGradeSign() && _grade <= form.getGradeExec() && form.getSigned())
-	// 	// _signed = true;
-	// else
-	// 	throw AForm::GradeTooLowException();
 }
 
 

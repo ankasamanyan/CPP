@@ -1,40 +1,74 @@
-// #include "Bureaucrat.hpp"
-// // #include "Form.hpp"
-// #include <iostream>
-// int main()
-// {
-// 	Form tmp("C34", 98, 23);
-// 	Form tmp2(tmp);
-// 	std::cout << "Trying to create a form with a too low grade!" << std::endl;
-// 	try
-// 	{
-// 		Form tmp3("OHNO", 151, 23);
-// 	}
-// 	catch (std::exception &e)
-// 	{
-// 		std::cout << e.what() << std::endl;
-// 	}
-// 	std::cout << std::endl << "Trying to create a form with a too high grade!" << std::endl;
-// 	try
-// 	{
-// 		Form tmp3("OHNO", 98, 0);
-// 	}
-// 	catch (std::exception &e)
-// 	{
-// 		std::cout << e.what() << std::endl;
-// 	}
-// 	Bureaucrat billy("Billy", 98);
-// 	Bureaucrat bobby("Bobby", 99);
-// 	std::cout << std::endl << tmp << std::endl;
-// 	std::cout << tmp2 << std::endl;
-// 	bobby.signForm(tmp);
-// 	billy.signForm(tmp);
-// 	tmp2 = tmp;
-// 	std::cout << tmp2 << std::endl;
-	
-// }
-
+#include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include <iostream>
 int main()
 {
+	Bureaucrat bill("Bill", 150);
+	Bureaucrat jackson("Jackson", 100);
+	Bureaucrat emily("Emily", 50);
+	Bureaucrat frank("Frank", 25);
+	Bureaucrat caroline("Caroline", 1);
+	std::cout << std::string(80, '-') << std::endl;
+	std::cout << "These are our bureaucrats:" << std::endl;
+	std::cout << bill << std::endl;
+	std::cout << jackson << std::endl;
+	std::cout << emily << std::endl;
+	std::cout << frank << std::endl;
+	std::cout << caroline << std::endl;
+	std::cout << std::string(80, '-') << std::endl;
+	ShrubberyCreationForm form1("home");
+	// ShrubberyCreationForm form2(form1);
+	RobotomyRequestForm form3("Bender");
+	// RobotomyRequestForm form4(form3);
+	PresidentialPardonForm form5("Santa");
+	PresidentialPardonForm form6;
+	form6 = form5;
+	std::cout << "These are our forms:" << std::endl;
+	std::cout << form1 << std::endl;
+	// std::cout << form2 << std::endl << std::endl;
+
+	std::cout << form3 << std::endl;
+	// std::cout << form4 << std::endl << std::endl;
+
+	std::cout << form5 << std::endl;
+	std::cout << form6 << std::endl;
+
+	std::cout << std::string(80, '-') << std::endl;
+	bill.signForm(form1);
+	bill.signForm(form3);
+	bill.signForm(form5);
+	
+	std::cout << std::string(80, '-') << std::endl;
+	jackson.signForm(form1);
+	jackson.signForm(form3);
+	jackson.signForm(form5);
+
+	std::cout << std::string(80, '-') << std::endl;
+	emily.signForm(form3);
+	emily.signForm(form5);
+	
+	std::cout << std::string(80, '-') << std::endl;
+	frank.signForm(form5);
+	std::cout << std::string(80, '-') << std::endl;
+	bill.executeForm(form1);
+	// bill.executeForm(form2);
+	bill.executeForm(form3);
+	// bill.executeForm(form4);
+	bill.executeForm(form5);
+	bill.executeForm(form6);
+	std::cout << std::string(80, '-') << std::endl;
+	jackson.executeForm(form1);
+	jackson.executeForm(form3);
+	jackson.executeForm(form5);
+	std::cout << std::string(80, '-') << std::endl;
+	emily.executeForm(form3);
+	emily.executeForm(form5);
+	std::cout << std::string(80, '-') << std::endl;
+	frank.executeForm(form3);
+	frank.executeForm(form5);
+	std::cout << std::string(80, '-') << std::endl;
+	caroline.executeForm(form5);
 	
 }

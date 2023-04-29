@@ -5,7 +5,7 @@ RobotomyRequestForm::RobotomyRequestForm():
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm():
+RobotomyRequestForm::RobotomyRequestForm(const std::string	&target):
 	AForm("Robotomy request", 72, 45),
 	_target(target)
 {
@@ -27,7 +27,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 }
 
 /* */
-void	RobotomyRequestForm::executeTatsaechlich(const Bureaucrat &borya) const
+void	RobotomyRequestForm::execute(const Bureaucrat &borya) const
 {
-
+	std::cout << borya.getNAme() << " executed" << getName() << RESET_LINE;
 }

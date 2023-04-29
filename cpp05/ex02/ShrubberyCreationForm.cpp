@@ -1,11 +1,11 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm():
-	AForm("Shrubbery creation", 145, 137),
+	AForm("Shrubbery creation", 145, 137)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string &target):
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target):
 	AForm("Shrubbery creation", 145, 137),
 	_target(target)
 {
@@ -26,7 +26,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 }
 
 /* */
-void	ShrubberyCreationForm::executeTatsaechlich(const Bureaucrat &borya) const
+void	ShrubberyCreationForm::execute(const Bureaucrat &borya) const
 {
 	std::ofstream outfile(_target + "_shrubbery");
 	if (outfile.is_open())
@@ -39,6 +39,6 @@ void	ShrubberyCreationForm::executeTatsaechlich(const Bureaucrat &borya) const
 					<<"88,   88         '8b,   ,aa '8b,   ,aa" << std::endl  
 					<<"'Y888 88          `'Ybbd8''  `'Ybbd8''" << std::endl;
 		outfile.close(); 
-		// std::cout << borya.getName() << " executed " << this->getName() << " on "<< this->_target + "_shrubbery" << "!" << std::endl;
+		std::cout << borya.getNAme() << " executed " << this->getName() << " on "<< this->_target + "_shrubbery" << "!" << std::endl;
 	}
 }
