@@ -12,18 +12,17 @@ class AForm
 		const int			_gradeExec;
 	public:
 		AForm();
-		virtual AForm(const std::string &name, int sign, int exec);
-		virtual AForm(const AForm &copy);
-		virtual AForm &operator=(const AForm &copy);
+		AForm(const std::string &name, int sign, int exec);
+		AForm(const AForm &copy);
+		AForm &operator=(const AForm &copy);
 		virtual ~AForm();
 		/* member functions */
-		const std::string	getName();
-		int					getGradeSign();
-		int					getGradeExec();
-		bool				getSigned();
+		const std::string	getName() const;
+		int					getGradeSign() const;
+		int					getGradeExec() const;
+		bool				getSigned() const;
 		void				beSigned(Bureaucrat &borya);
-		void				execute(Bureaucrat const & executor) const;
-		virtual void		executeTatsaechlich(void) = 0;
+		virtual void				execute(Bureaucrat const & executor) const;
 		/* exceptions */
 		class	GradeTooHighException: public std::exception
 		{

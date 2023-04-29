@@ -40,22 +40,22 @@ AForm::~AForm()
 
 /* getters */
 
-const std::string	AForm::getName()
+const std::string	AForm::getName() const
 {
 	return(_name);
 }
 
-int	AForm::getGradeSign()
+int	AForm::getGradeSign() const
 {
 	return(_gradeSign);
 }
 
-int	AForm::getGradeExec()
+int	AForm::getGradeExec() const
 {
 	return(_gradeExec);
 }
 
-bool	AForm::getSigned()
+bool	AForm::getSigned() const
 {
 	return(_signed);
 }
@@ -74,7 +74,7 @@ void	AForm::beSigned(Bureaucrat &borya)
 void	AForm::execute(const Bureaucrat &borya) const
 {
 	if (borya.getGrade() <= _gradeExec && _signed)
-		this->executeTatsaechlich();
+		this->execute();
 	else
 	{
 		if (!_signed)

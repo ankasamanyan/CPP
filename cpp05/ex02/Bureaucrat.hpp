@@ -16,8 +16,8 @@ class Bureaucrat
 		Bureaucrat &operator=(const Bureaucrat &copy);
 		~Bureaucrat();
 		/* member functions */
-		const std::string	getNAme();
-		int					getGrade();
+		const std::string	getNAme() const;
+		int					getGrade() const;
 		void				setGrade(int grade);
 		void				increaseGrade();
 		void				decreaseGrade();

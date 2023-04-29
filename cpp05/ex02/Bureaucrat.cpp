@@ -26,12 +26,12 @@ Bureaucrat::~Bureaucrat()
 }
 
 /*  */
-const std::string	Bureaucrat::getNAme()
+const std::string	Bureaucrat::getNAme() const
 {
 	return(_name);
 }
 
-int		Bureaucrat::getGrade()
+int		Bureaucrat::getGrade() const
 {
 	return(_grade);
 }
