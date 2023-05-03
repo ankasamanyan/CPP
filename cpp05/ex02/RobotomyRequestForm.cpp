@@ -32,7 +32,16 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void	RobotomyRequestForm::execute(const Bureaucrat &borya) const
 {
 	if (borya.getGrade() <= getGradeExec() && getSigned())
-		std::cout << SKY <<borya.getNAme() << PINK << " executed " << SKY << getName() << RESET_LINE;
+	{
+		srand(time(NULL));
+		if (rand() % 2)
+		{
+			std::cout << YELLOW << "\t\t\t* Drilling Noise * " << RESET_LINE ;
+			std::cout << SKY << _target << PINK << " has been robotomized by " << SKY << borya.getNAme() << PINK << "!" << std::endl << RESET_LINE;
+		}
+		else
+			std::cout << SKY << borya.getNAme() << PINK << " tried to robotomize " << SKY << _target << PINK << " but failed!" << RESET_LINE;
+	}
 	else
 	{
 		if (!getSigned())
