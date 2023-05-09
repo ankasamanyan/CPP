@@ -2,16 +2,17 @@ NAME = bureaucrat
 
 SRC =	AForm.cpp \
 		Bureaucrat.cpp \
+		Intern.cpp \
 		PresidentialPardonForm.cpp \
 		RobotomyRequestForm.cpp \
 		ShrubberyCreationForm.cpp \
-		main.cpp \
+		main.cpp
 
 PURPLE	= "\033[0;34m"
 PINK	= "\033[0;35m"
 RESET	= "\033[0m"
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 RM = rm -f
 
 all:$(NAME)

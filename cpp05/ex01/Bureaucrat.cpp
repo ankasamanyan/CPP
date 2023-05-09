@@ -66,6 +66,7 @@ void	Bureaucrat::signForm(Form &form)
 	{
 		std::cerr << SKY << _name << YELLOW << " couldn't sign form '" << SKY << form.getName() << YELLOW << "' because "; 
 		std::cerr << e.what() << '\n';
+		return ;
 	}
 	std::cout << SKY << _name << PINK << " signed '" << SKY << form.getName() << PINK << "' form" << RESET_LINE;
 }
