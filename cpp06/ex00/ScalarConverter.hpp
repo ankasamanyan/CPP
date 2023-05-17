@@ -8,12 +8,6 @@
 class ScalarConverter
 {
 	public:
-		// ScalarConverter();
-		// ScalarConverter(const ScalarConverter &copy);
-		// ScalarConverter	&operator=(const ScalarConverter &copy);
-		// ~ScalarConverter();
-		
-		/* member functions */
 		static void	convert(std::string input);
 };
 
