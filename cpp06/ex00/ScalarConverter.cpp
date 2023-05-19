@@ -30,7 +30,7 @@ static int inputIsValid(std::string input)
 	}
 	for (std::string::const_iterator it = input.begin(); it != input.end(); ++it)
 	{
-	   	if (isnumber(*it) || (input[input.size() - 1] == 'f' || (*it == '.' && dot < 2)))
+	   	if (isnumber(*it) || (input[input.size() - 1] == 'f' || (*it == '.' && dot < 2 && input[input.size() - 1] != '.')))
 			size++;
 	}
 	if (size  == input.size())
@@ -63,17 +63,30 @@ static void	intCast(double value)
 		std::cout << PURPLE << "int:	" << GREEN << "impossible" << RESET_LINE;
 }
 
-// static void	floatCast()
-// {
-
-// }
-
-static void	doubleCast(std::string input, double value)
+static void	floatCast(std::string input, double value)
 {
 	if (inputIsValid(input))
 	{
-		if (findChar(input, '.'))
-			std::cout << PURPLE << "double:	" << GREEN << static_cast<double>(value) << RESET_LINE;
+		if (findChar(input, '.') && findChar(input, 'f'))
+			std::cout << PURPLE << "float:	" << GREEN << input << RESET_LINE;
+		else if (findChar(input, '.') && !findChar(input, 'f'))
+			std::cout << PURPLE << "float:	" << GREEN << input << "f" << RESET_LINE;
+		else if (!findChar(input, '.') && !findChar(input, 'f'))
+			std::cout << PURPLE << "float:	" << GREEN << value << ".0f" << RESET_LINE;
+
+	}
+	else
+		std::cout << PURPLE << "float:	" << GREEN << "impossible" << RESET_LINE;
+}
+
+static void	doubleCast(std::string input)
+{
+	if (inputIsValid(input))
+	{
+		if (findChar(input, '.') && !findChar(input, 'f'))
+			std::cout << PURPLE << "double:	" << GREEN << input << RESET_LINE;
+		else if (findChar(input, 'f'))
+			std::cout << PURPLE << "double:	" << GREEN << input.substr(0, input.size() - 1) << RESET_LINE;
 		else
 			std::cout << PURPLE << "double:	" << GREEN << input << ".0" << RESET_LINE;
 	}
@@ -86,20 +99,14 @@ void	ScalarConverter::convert(std::string input)
 {
 	char	*stringy;
 	double	value;
-	//has to be ascii
-	//can contain 1 dot for the numbers 
-	//might contain an f in the end for the float
+
 	if (!inputIsValid(input))
 		return(printMsg("INVALID INPUT", PINK));
 	value = strtod(input.c_str(), &stringy);
-
-	// std::cout << PURPLE << "strngy: " << GREEN << "'" << input << "'" << RESET_LINE;
-	// std::cout << PURPLE << "value: " << GREEN << "'" << static_cast<int>(value) << "'" << RESET_LINE << RESET_LINE;
-
 	charCast(input, value);
 	intCast(value);
-	// floatCast(input,alue);
-	doubleCast(input, value);
+	floatCast(input,value);
+	doubleCast(input);
 
 }
 
