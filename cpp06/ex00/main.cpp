@@ -1,8 +1,12 @@
 #include "ScalarConverter.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-	std::string input = "36.8";
-	ScalarConverter::convert(input);
+	if (argc != 2)
+	{
+		printMsg("WRONG ARG.COUNT", PINK);
+		return 0;
+	}
+	ScalarConverter::convert(argv[1]);
 	return 0;
 }

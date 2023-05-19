@@ -65,7 +65,7 @@ static void	intCast(double value)
 
 static void	floatCast(std::string input, double value)
 {
-	if (inputIsValid(input))
+	if ((value >= INT_MIN && value <= INT_MAX) && inputIsValid(input))
 	{
 		if (findChar(input, '.') && findChar(input, 'f'))
 			std::cout << PURPLE << "float:	" << GREEN << input << RESET_LINE;
@@ -79,9 +79,9 @@ static void	floatCast(std::string input, double value)
 		std::cout << PURPLE << "float:	" << GREEN << "impossible" << RESET_LINE;
 }
 
-static void	doubleCast(std::string input)
+static void	doubleCast(std::string input, double value)
 {
-	if (inputIsValid(input))
+	if (inputIsValid(input) && (value >= INT_MIN && value <= INT_MAX))
 	{
 		if (findChar(input, '.') && !findChar(input, 'f'))
 			std::cout << PURPLE << "double:	" << GREEN << input << RESET_LINE;
@@ -105,8 +105,8 @@ void	ScalarConverter::convert(std::string input)
 	value = strtod(input.c_str(), &stringy);
 	charCast(input, value);
 	intCast(value);
-	floatCast(input,value);
-	doubleCast(input);
+	floatCast(input, value);
+	doubleCast(input, value);
 
 }
 
