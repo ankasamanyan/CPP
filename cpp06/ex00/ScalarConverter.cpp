@@ -30,10 +30,11 @@ static int inputIsValid(std::string input)
 	}
 	for (std::string::const_iterator it = input.begin(); it != input.end(); ++it)
 	{
-	   	if (isnumber(*it) || (input[input.size() - 1] == 'f' || (*it == '.' && dot < 2 && input[input.size() - 1] != '.')))
+	   	if (isnumber(*it) || (input[input.size() - 1] == 'f' || (*it == '.' && dot < 2 
+			&& input[input.size() - 1] != '.' && input[0] != '.')))
 			size++;
 	}
-	if (size  == input.size())
+	if (size  == input.size() && input.size() != 0)
 		return (true);
 	return (false);
 }
