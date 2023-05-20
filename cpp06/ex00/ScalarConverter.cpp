@@ -24,16 +24,16 @@ static int inputIsValid(std::string input)
 	unsigned long size = 0;
 
 	for (std::string::const_iterator it = input.begin(); it != input.end(); ++it)
-	{
 		if (*it == '.')
 			dot++;
-	}
 	for (std::string::const_iterator it = input.begin(); it != input.end(); ++it)
-	{
 	   	if (isnumber(*it) || (input[input.size() - 1] == 'f' || (*it == '.' && dot < 2 
-			&& input[input.size() - 1] != '.' && input[0] != '.')))
+			&& input[input.size() - 1] != '.' )))
 			size++;
-	}
+	if ((findChar(input, 'f') && !findChar(input, '.') ) || input[0] == '.')
+		return (false);
+	if (input.size() > 2 && (!isnumber(input[input.size() - 1]) && !isnumber(input[input.size() - 2])))
+		return (false);
 	if (size  == input.size() && input.size() != 0)
 		return (true);
 	return (false);
