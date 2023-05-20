@@ -1,6 +1,6 @@
 #include "ScalarConverter.hpp"
 
-static int	isJustChar(std::string str)
+static bool	isJustChar(std::string str)
 {
 	std::string::const_iterator it = str.begin();
 	if (isascii(*it))
@@ -8,7 +8,7 @@ static int	isJustChar(std::string str)
 	return (false);
 }
 
-static int findChar(std::string input, char c)
+static bool findChar(std::string input, char c)
 {
 	for (std::string::const_iterator it = input.begin(); it != input.end(); ++it)
 	{
@@ -18,7 +18,19 @@ static int findChar(std::string input, char c)
 	return (false);
 }
 
-static int inputIsValid(std::string input)
+static void ifPseudo(std::string input)
+{
+	if (input.compare("nan") == 0 || input.compare("+inf") == 0 || input.compare("-inf") == 0)
+	{
+		std::cout << PURPLE << "char:	" << GREEN << "impossible" << RESET_LINE;
+		std::cout << PURPLE << "int:	" << GREEN << "impossible" << RESET_LINE;
+		std::cout << PURPLE << "float:	" << GREEN << input << "f" << RESET_LINE;
+		std::cout << PURPLE << "char:	" << GREEN << input << RESET_LINE;
+		exit (0);
+	}
+}
+
+static bool inputIsValid(std::string input)
 {
 	int	dot = 0;
 	unsigned long size = 0;
@@ -30,7 +42,7 @@ static int inputIsValid(std::string input)
 	   	if (isnumber(*it) || (input[input.size() - 1] == 'f' || (*it == '.' && dot < 2 
 			&& input[input.size() - 1] != '.' )))
 			size++;
-	if ((findChar(input, 'f') && !findChar(input, '.') ) || input[0] == '.')
+	if ((findChar(input, 'f') && !findChar(input, '.') ) || input[0] == '.' || input[0] == '0' )
 		return (false);
 	if (input.size() > 2 && (!isnumber(input[input.size() - 1]) && !isnumber(input[input.size() - 2])))
 		return (false);
@@ -101,6 +113,7 @@ void	ScalarConverter::convert(std::string input)
 	char	*stringy;
 	double	value;
 
+	ifPseudo(input);
 	if (!inputIsValid(input))
 		return(printMsg("INVALID INPUT", PINK));
 	value = strtod(input.c_str(), &stringy);
