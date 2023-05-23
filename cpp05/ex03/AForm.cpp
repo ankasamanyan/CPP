@@ -71,21 +71,6 @@ void	AForm::beSigned(Bureaucrat &borya)
 		throw AForm::GradeTooLowException();
 }
 
-// void	AForm::execute(const Bureaucrat &borya) const
-// {
-// 	if (borya.getGrade() <= _gradeExec && _signed)
-// 		this->execute();
-// 	else
-// 	{
-// 		if (!_signed)
-// 		{
-// 			std::cout << "¡zis is not signed!" << RESET_LINE;
-// 		}
-// 		else
-// 			throw AForm::GradeTooLowException();
-// 	}
-// }
-
 /* exceptons */
 const char *AForm::GradeTooHighException::what() const throw()
 {
