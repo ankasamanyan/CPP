@@ -10,9 +10,10 @@ class Base
 	public:
 		virtual ~Base();
 	/* member functions */
-		Base *generate(void);
-		void identify(Base *p);
-		void identify(Base &p);
 };
+
+Base *generate(void);
+void identify(Base *p);
+void identify(Base &p);
 
 #endif
