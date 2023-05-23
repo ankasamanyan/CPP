@@ -9,7 +9,6 @@ class Base
 {
 	public:
 		virtual ~Base();
-	/* member functions */
 };
 
 Base *generate(void);
