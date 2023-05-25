@@ -147,7 +147,7 @@ static void	intCast(std::string input, double value)
 	if (detectChar(input) == CHAR)
 		std::cout << PURPLE << "int:      " << GREEN << static_cast<int>(input[0]) << RESET_LINE;
 	else if (value >= INT_MIN && value <= INT_MAX)
-		std::cout << PURPLE << "int:      " << GREEN << value << RESET_LINE;
+		std::cout << PURPLE << "int:      " << GREEN << static_cast<int>(value) << RESET_LINE;
 	else
 		std::cout << PURPLE << "int:      " << GREEN << "impossible" << RESET_LINE;
 }
