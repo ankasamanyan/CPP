@@ -15,7 +15,16 @@ class Array
 		explicit Array(unsigned int size);
 		Array(const Array &copy);
 		Array	&operator=(const Array &copy);
+		T	&operator[](unsigned int 	index);
 		~Array();
+	/* Exception */
+	class OutOfBoundsException: public std::exception
+	{
+		const char *what() const throw()
+		{
+			return ("\033[0;33m* Index is out of bounds! *\033[0m");
+		}
+	};
 };
 
 
@@ -47,6 +56,14 @@ Array<T>	&Array<T>::operator=(const Array &copy)
 		for (unsigned int i = 0; i < _size; i++)
 			_content[i] = copy._content[i];
 	return (*this);	
+}
+
+template <typename T>
+T	&Array<T>::operator[](unsigned int 	index)
+{
+	if (_size == 0 || _size - 1 < index)
+		throw (OutOfBoundsException());
+	return (_content[index]);
 }
 
 template <typename T>
