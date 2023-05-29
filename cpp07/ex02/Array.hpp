@@ -12,9 +12,9 @@ class Array
 		T				*_content;
 	public:
 		Array();
-		explicit Array(unsigned int size);
-		Array(const Array &copy);
-		Array	&operator=(const Array &copy);
+		Array(unsigned int size);
+		Array(const Array<T> &copy);
+		Array	&operator=(const Array<T> &copy);
 		T	&operator[](unsigned int 	index);
 		~Array();
 	/* Exception */
@@ -34,22 +34,26 @@ Array<T>::Array(): _size(0), _content(nullptr)
 }
 
 template <typename T>
-Array<T>::Array(unsigned int size) : _size(size)
+Array<T>::Array(unsigned int size)
 {
 	_content = new T[_size];
+	_size = size;
 }
 
 template <typename T>
-Array<T>::Array(const Array &copy) : _size(copy._size)
+Array<T>::Array(const Array<T> &copy) :  _size(0), _content(nullptr)
 {
 	*this = copy;
 }
 
 template <typename T>
-Array<T>	&Array<T>::operator=(const Array &copy)
+Array<T>	&Array<T>::operator=(const Array<T> &copy)
 {
 	if(_content)
+	{
 		delete[] _content;
+		_content = nullptr;
+	}
 	_size = copy._size;
 	_content = new T[_size];
 	if (_size > 0)
