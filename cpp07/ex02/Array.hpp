@@ -36,8 +36,8 @@ Array<T>::Array(): _size(0), _content(nullptr)
 template <typename T>
 Array<T>::Array(unsigned int size)
 {
-	_content = new T[_size];
 	_size = size;
+	_content = new T[_size];
 }
 
 template <typename T>
