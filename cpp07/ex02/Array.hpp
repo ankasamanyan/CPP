@@ -29,7 +29,7 @@ class Array
 
 
 template <typename T>
-Array<T>::Array(): _size(0), _content(nullptr)
+Array<T>::Array(): _size(0), _content(NULL)
 {
 }
 
@@ -41,7 +41,7 @@ Array<T>::Array(unsigned int size)
 }
 
 template <typename T>
-Array<T>::Array(const Array<T> &copy) :  _size(0), _content(nullptr)
+Array<T>::Array(const Array<T> &copy) :  _size(0), _content(NULL)
 {
 	*this = copy;
 }
@@ -52,7 +52,7 @@ Array<T>	&Array<T>::operator=(const Array<T> &copy)
 	if(_content)
 	{
 		delete[] _content;
-		_content = nullptr;
+		_content = NULL;
 	}
 	_size = copy._size;
 	_content = new T[_size];
