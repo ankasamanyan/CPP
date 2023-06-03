@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Array.hpp"
 #include <unistd.h>
+#include <stdlib.h>
 
 #define MAX_VAL 750
 int main(int, char**)
