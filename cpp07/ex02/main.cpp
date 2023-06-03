@@ -49,6 +49,6 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
-    std::cout << GREEN << "  Test was successfull!" << RESET << std::endl;
+    std::cout << GREEN << " Test was successful! " << RESET << std::endl;
     return 0;
 }
