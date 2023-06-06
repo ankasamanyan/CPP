@@ -1,5 +1,5 @@
-#ifndef	COLOURS_H
-	#define COLOURS_H
+#ifndef	UTILS_HPP
+	#define UTILS_HPP
 #include <iostream>
 # define CPP_IS_PAIN	1
 # define RESET			"\033[0m"
@@ -19,18 +19,29 @@
 # define RESET_LINE 	RESET << std::endl
 # define RE_TERMINAL	std::cout << "\e[1;1H\e[2J"
 
-void	printMsg(std::string stringy, std::string colour);
+class Utils
+{
+	public:
+		static void	printMsg(std::string stringy, std::string colour)
+		{
+			std::cout << std::endl << colour << "+" << std::string(49, '=') << "+" << RESET_LINE;
+			std::cout << RESET << (stringy.size() > 16 ? "	" : "		");
+			std::cout<< "..." << stringy << "..." << RESET_LINE;
+			std::cout << colour << "+" << std::string(49, '=') << "+" << std::endl << RESET_LINE;
+		}
+
+		static bool strCheck(std::string stringy, int(*func)(int c))
+		{
+			for (std::string::const_iterator it = stringy.begin(); it != stringy.end(); ++it)
+			{
+				if (!(*func)(*it))
+					return(false);
+			}
+			return(true);
+		}
+};
 
 #endif
-
-void	printMsg(std::string stringy, std::string colour)
-{
-	std::cout << std::endl << colour << "+" << std::string(49, '=') << "+" << RESET_LINE;
-	std::cout << RESET << (stringy.size() > 16 ? "	" : "		");
-	std::cout<< "..." << stringy << "..." << RESET_LINE;
-	std::cout << colour << "+" << std::string(49, '=') << "+" << std::endl << RESET_LINE;
-}
-
 
 //256
 // Foreground: \033[38;5;<color_number>m
