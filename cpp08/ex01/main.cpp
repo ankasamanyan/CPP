@@ -34,9 +34,9 @@ int main()
 	{
 		int num = rand()%100;
 		array.push_back(num);
-		std::cout << GREEN << num << YELLOW << (i < 19 ? ", ": "\n\n") << RESET;
+		std::cout << GREEN << num << YELLOW << (i < 19 ? ", ": "\n") << RESET;
 	}
-	std::cout << GRAY << std::string(49,'-') << RESET_LINE;
+	std::cout << GRAY << std::string(49,'-') << std::endl <<RESET_LINE;
 
 	Span intSpan(20);
 	intSpan.addSpan(array.begin(), array.end());
@@ -75,10 +75,7 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << GRAY << std::string(49,'-') << RESET_LINE;
-	
-	
-
+	std::cout << GRAY << std::string(49,'-') << RESET_LINE;	
 
 	return 0; 
 }
