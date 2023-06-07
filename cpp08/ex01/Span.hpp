@@ -13,9 +13,10 @@ class Span
 		int					_shortestSpan;
 		unsigned int		_amount;
 		std::vector<int>	_values;
+	/* private default constructor */
+		Span();
 
 	public:
-		Span();
 		Span(unsigned int amount);
 		Span(const Span &copy);
 		Span &operator=(const Span &copy);
