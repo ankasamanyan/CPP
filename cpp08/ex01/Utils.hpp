@@ -13,6 +13,7 @@
 # define BLUE			"\033[38;5;81m"
 # define ORANGE			"\033[38;2;255;165;0m"
 # define LILY			"\033[38;5;219m"
+# define GRAY			"\033[38;5;8m"
 # define ON_RED 		"\033[41m"
 # define ON_PURPLE		"\033[44m"
 # define ON_PINK		"\033[45m"

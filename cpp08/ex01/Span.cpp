@@ -8,10 +8,14 @@ Span::Span()
 
 Span::Span(unsigned int amount)
 {
-	_amount = amount;
-	_values.reserve(_amount);
-	_longestSpan = 0;
-	_shortestSpan = 0;
+	if (amount > 0)
+	{
+		_amount = amount;
+		_values.reserve(_amount);
+		_longestSpan = 0;
+		_shortestSpan = 0;
+	}
+	else throw EmptyArrayException();
 }
 
 Span::Span(const Span &copy)
@@ -34,28 +38,59 @@ Span::~Span()
 {
 }
 
-/* member funcyions */
+/* member functions */
 
 void Span::addNumber(int number)
 {
-	if (_values.size() < _amount)
-		_values.push_back(number);
-	else throw TooManyElements();
+	if (_amount > 0)
+	{
+		if (_values.size() < _amount)
+			_values.push_back(number);
+		else throw TooManyElementsException();
+	}
+	else throw EmptyArrayException();
 }
 
 int	Span::longestSpan()
 {
-	std::sort(_values.begin(), _values.end());
-	_longestSpan = *(_values.end() - 1) - *(_values.begin());
-	// std::cout << GREEN << _longestSpan << RESET_LINE;
-	return(_longestSpan);
+	if (_amount > 0)
+	{
+		std::sort(_values.begin(), _values.end());
+		_longestSpan = *(_values.end() - 1) - *(_values.begin());
+		return(_longestSpan);
+	}
+	else throw EmptyArrayException();
 }
 
 int	Span::shortestSpan()
 {
-	std::sort(_values.begin(), _values.end());
-	if(_values.size() > 1)
-		_shortestSpan = _values[1] - _values[0];
-	// std::cout << PURPLE << _shortestSpan << RESET_LINE;
-	return(_shortestSpan);
+	if (_amount > 0)
+	{
+		std::sort(_values.begin(), _values.end());
+		if(_values.size() > 1)
+			_shortestSpan = _values[1] - _values[0];
+		return(_shortestSpan);
+	}
+	else throw EmptyArrayException();
+}
+
+void Span::addSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (_amount > 0)
+	{
+		while (begin != end)
+		{
+			try
+			{
+				addNumber(*begin);
+			}
+			catch(const std::exception& e)
+			{
+				std::cerr << e.what() << '\n';
+				break;
+			}
+			begin++;
+		}
+	}
+	else throw EmptyArrayException();
 }

@@ -3,21 +3,19 @@
 #include "Utils.hpp"
 #include <vector>
 #include <exception>
-// #include <algorithm>
+#include <stdlib.h>
+#include <algorithm>
 
 class Span
 {
 	private:
-	/* private constructor */
-		Span();
-	/* private variables */
 		int					_longestSpan;
 		int					_shortestSpan;
 		unsigned int		_amount;
 		std::vector<int>	_values;
 
 	public:
-	/* public constructor */
+		Span();
 		Span(unsigned int amount);
 		Span(const Span &copy);
 		Span &operator=(const Span &copy);
@@ -26,14 +24,21 @@ class Span
 		int	longestSpan();
 		int	shortestSpan();
 		void addNumber(int number);
-		// void
+		void addSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 
 	/* Exception */
-	class TooManyElements: public std::exception
+	class TooManyElementsException: public std::exception
 	{
 		const char *what() const throw()
 		{
-			return ("\033[0;33m* There are too many Elements! *\033[0m");
+			return ("\033[0;33m\t* There are too many Elements! *\033[0m");
+		}
+	};
+	class EmptyArrayException: public std::exception
+	{
+		const char *what() const throw()
+		{
+			return ("\033[0;33m\t* You've created an empty array! *\033[0m");
 		}
 	};
 
