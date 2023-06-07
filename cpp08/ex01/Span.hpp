@@ -41,6 +41,13 @@ class Span
 			return ("\033[0;33m\t* You've created an empty array! *\033[0m");
 		}
 	};
+	class NoSpanFoundException: public std::exception
+	{
+		const char *what() const throw()
+		{
+			return ("\033[0;33m\t* No span can be found! *\033[0m");
+		}
+	};
 
 };
 

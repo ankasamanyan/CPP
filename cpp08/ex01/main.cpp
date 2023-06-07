@@ -75,6 +75,22 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << GRAY << std::string(49,'-') << RESET_LINE;
+
+	Utils::printMsg("Calling functions on empty array",PURPLE);
+	std::cout << GRAY << std::endl << "/* Trying to get span from not populated array */" << RESET_LINE;
+	std::cout << GRAY << std::string(49,'-') << RESET_LINE;
+
+	try
+	{
+		Span anotherSpan(5);
+		anotherSpan.shortestSpan();
+		anotherSpan.longestSpan();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	std::cout << GRAY << std::string(49,'-') << RESET_LINE;	
 
 	return 0; 

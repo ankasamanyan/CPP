@@ -53,25 +53,34 @@ void Span::addNumber(int number)
 
 int	Span::longestSpan()
 {
-	if (_amount > 0)
+	if (_values.empty())
+		throw NoSpanFoundException();
+	else if (_amount > 0)
 	{
 		std::sort(_values.begin(), _values.end());
 		_longestSpan = *(_values.end() - 1) - *(_values.begin());
 		return(_longestSpan);
 	}
-	else throw EmptyArrayException();
+	else if (_amount == 0)
+		throw EmptyArrayException();
+	else if (_values.size() < 2)
+		throw NoSpanFoundException();
+	return 0;
 }
 
 int	Span::shortestSpan()
 {
-	if (_amount > 0)
+	if (_values.empty())
+		throw NoSpanFoundException();
+	else if (_amount > 0)
 	{
 		std::sort(_values.begin(), _values.end());
 		if(_values.size() > 1)
 			_shortestSpan = _values[1] - _values[0];
-		return(_shortestSpan);
 	}
-	else throw EmptyArrayException();
+	else if (_amount == 0)
+		throw EmptyArrayException();
+	return(_shortestSpan);
 }
 
 void Span::addSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end)
