@@ -70,13 +70,24 @@ int	Span::longestSpan()
 
 int	Span::shortestSpan()
 {
+	int min = INT_MAX;
 	if (_values.empty())
 		throw NoSpanFoundException();
 	else if (_amount > 0)
 	{
-		std::sort(_values.begin(), _values.end());
+		std::vector<int>::iterator begin = _values.begin();
+		std::vector<int>::iterator end = _values.end();
+		std::sort(begin, end);
 		if(_values.size() > 1)
-			_shortestSpan = _values[1] - _values[0];
+		{
+			while  (begin != end)
+			{
+				if ((begin + 1)!= end && *(begin + 1) - *begin < min)
+					min = *(begin + 1) - *begin;
+				begin++;
+			}
+		}
+		return(_shortestSpan = min);
 	}
 	else if (_amount == 0)
 		throw EmptyArrayException();
