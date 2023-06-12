@@ -1,5 +1,17 @@
 #include "BitcoinExchange.hpp"
 
+BitcoinExchange::BitcoinExchange(/* args */)
+{
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
+{
+}
+
+
+BitcoinExchange::~BitcoinExchange()
+{
+}
 // You have to create a program which outputs the value of a certain amount of bitcoin on a certain date.
 
 // This program must use a database in csv format which will represent bitcoin price over time. This database is provided with this subject.
