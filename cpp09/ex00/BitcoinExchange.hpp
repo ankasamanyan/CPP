@@ -1,18 +1,21 @@
 #pragma once
 #include "Utils.hpp"
 #include <iostream>
+#include <fstream>
 #include <map>
 
 class BitcoinExchange
 {
 	private:
-		/* data */
+		std::map<std::string, int>	
+		
 	public:
-		BitcoinExchange(/* args */);
+		BitcoinExchange();
+		BitcoinExchange(std::string &fileName);
 		BitcoinExchange(const BitcoinExchange &copy);
 		BitcoinExchange &operator=(const BitcoinExchange &copy);
 		~BitcoinExchange();
-	};
+};
 
-
+bool isValidFile(std::string stringy);
 
