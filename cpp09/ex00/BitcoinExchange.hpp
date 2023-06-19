@@ -7,7 +7,7 @@
 class BitcoinExchange
 {
 	private:
-		std::map<std::string, int>	
+		std::map<std::string, int>	_map;
 		
 	public:
 		BitcoinExchange();
