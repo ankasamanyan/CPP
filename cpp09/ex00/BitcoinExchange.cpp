@@ -17,19 +17,29 @@ BitcoinExchange::BitcoinExchange(/* args */)
 {
 }
 
-BitcoinExchange::BitcoinExchange(std::string &fileName)
+BitcoinExchange::BitcoinExchange(std::string fileName)
 {
 	std::ifstream	inputFile(fileName);
 	std::string		line;
-	
-
+	std::string		date;
+	double			rate;
+	char 			*str;
 	if (inputFile.is_open())
 	{
+		int i = 1;
 		while(std::getline(inputFile, line))
 		{
 			if(line.compare("date,exchange_rate"))
-				continue ;
-			
+			{
+				std::getline(inputFile, line);
+				// continue ;
+			}
+			// checkDate(date);
+			// checkRate(date);
+			date = line.substr(0, 10);
+			rate = std::strtod(line.substr(line.find(',') + 1, line.size() - line.find(',')).c_str(), &str);
+			std::cout << GREEN << i++ << PURPLE << " " << date << ": " << GREEN << rate << RESET_LINE;
+			addToMap(date, rate);
 		}
 	}
 }
@@ -49,6 +59,11 @@ BitcoinExchange::~BitcoinExchange()
 {
 }
 
+void	BitcoinExchange::addToMap(std::string date, double rate)
+{
+	_dataBase.insert(std::make_pair(date, rate));
+}
+
 /*      */
 
 
@@ -59,5 +74,6 @@ bool isValidFile(std::string stringy)
 {
 	if (stringy.substr(stringy.find('.')/* + 1 */, 3).compare("cvs") == 0)
 		return true;
-	else false;
+	else 
+		return false;
 }
