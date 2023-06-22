@@ -18,6 +18,7 @@
 # define ON_PURPLE		"\033[44m"
 # define ON_PINK		"\033[45m"
 # define RESET_LINE 	RESET << std::endl
+# define PRINT			std::cout
 # define RE_TERMINAL	std::cout << "\e[1;1H\e[2J"
 
 class Utils

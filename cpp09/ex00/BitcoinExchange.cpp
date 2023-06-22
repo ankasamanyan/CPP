@@ -17,31 +17,29 @@ BitcoinExchange::BitcoinExchange(/* args */)
 {
 }
 
-BitcoinExchange::BitcoinExchange(std::string fileName)
+BitcoinExchange::BitcoinExchange(std::string dataBase, std::string input)
 {
-	std::ifstream	inputFile(fileName);
+	std::ifstream	data(dataBase);
 	std::string		line;
 	std::string		date;
 	double			rate;
 	char 			*str;
-	if (inputFile.is_open())
+	if (data.is_open())
 	{
-		int i = 1;
-		while(std::getline(inputFile, line))
+		// int i = 1;
+		while(std::getline(data, line))
 		{
-			if(line.compare("date,exchange_rate"))
-			{
-				std::getline(inputFile, line);
-				// continue ;
-			}
-			// checkDate(date);
-			// checkRate(date);
+			if(line.compare("date,exchange_rate") == 0)
+				continue;
 			date = line.substr(0, 10);
 			rate = std::strtod(line.substr(line.find(',') + 1, line.size() - line.find(',')).c_str(), &str);
-			std::cout << GREEN << i++ << PURPLE << " " << date << ": " << GREEN << rate << RESET_LINE;
+			// std::cout << GREEN << i++ << PURPLE << " " << date << ": " << GREEN << rate << RESET_LINE;
 			addToMap(date, rate);
 		}
 	}
+	else
+		Utils::printMsg("Something wrong with your file", YELLOW);
+	parseTheFile(input);
 }
 
 
@@ -52,6 +50,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
 {
+	dataBase = copy.dataBase;
 	return (*this);
 }
 
@@ -61,19 +60,42 @@ BitcoinExchange::~BitcoinExchange()
 
 void	BitcoinExchange::addToMap(std::string date, double rate)
 {
-	_dataBase.insert(std::make_pair(date, rate));
+	dataBase.insert(std::make_pair(date, rate));
 }
 
 /*      */
 
-
-
-/*      */
-
-bool isValidFile(std::string stringy)
+bool	isValidFile(std::string stringy)
 {
-	if (stringy.substr(stringy.find('.')/* + 1 */, 3).compare("cvs") == 0)
+	if (stringy.substr(stringy.find('.')+1).compare("txt") == 0)
 		return true;
 	else 
 		return false;
+}
+
+void	BitcoinExchange::parseTheFile(std::string input)
+{
+	std::ifstream	inputFile(input);
+	std::string		line;
+	std::string		date;
+	double			value;
+	char			*str;
+
+	if (inputFile.is_open())
+	{
+		// int i = 1;
+		while(std::getline(inputFile, line))
+		{
+			if(line.compare("date | value") == 0)
+				continue;
+			date = line.substr(0,10); //check if the date is valid
+			value = std::strtod(line.substr(line.find('|')+1).c_str(), &str); //check if the value is valid
+			if(dataBase.find(date) != dataBase.end())
+				PRINT << GREEN << date << PURPLE << " => " << GREEN << value << PURPLE << " = "<< GREEN << value * dataBase.find(date)->second << RESET_LINE;
+			else
+				PRINT << GREEN << date << PURPLE <<" -> not found"<< RESET_LINE;
+		}
+	}
+	else
+		Utils::printMsg("Something wrong with your file", YELLOW);
 }

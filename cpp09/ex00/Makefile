@@ -6,7 +6,7 @@ PURPLE	= "\033[0;34m"
 PINK	= "\033[0;35m"
 RESET	= "\033[0m"
 CC = c++
-FLAGS = #-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
 RM = rm -f
 
 all:$(NAME)
@@ -15,11 +15,12 @@ all:$(NAME)
 
 $(NAME): $(OBJ) $(SRC)
 	@$(CC) $(SRC) $(FLAGS) -o $(NAME)
-	@echo $(PURPLE)"•    ✨ COMPILED ✨    •"$(RESET) # && say -v Milena "Your stupid program is Compiled!"
+	@echo $(PURPLE)"•    ✨ COMPILED ✨    •"$(RESET)  #&& say -v Milena "Your stupid program is Compiled!"
+#	@bash Catto.sh
 
 fclean:
 	@$(RM) $(NAME)
-	@echo $(PINK)"•     ✨ CLEANED ✨    •"$(RESET) # && say -v Milena "Your stupid program is cleaned!"
+	@echo $(PINK)"•     ✨ CLEANED ✨    •"$(RESET)  #&& say -v Milena "Your stupid program is cleaned!"
 
 re: fclean all
 
