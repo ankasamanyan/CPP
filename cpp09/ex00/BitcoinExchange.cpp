@@ -135,7 +135,7 @@ bool	BitcoinExchange::invalidDate(std::string date)
 	int	day		= std::strtod(date.substr(8,2).c_str(), NULL);
 
 	if ((date.size() != 10) ||  year > 2023 || month > 12 || ((month%2) && day > 30)
-		|| ((month%2) && day > 31) || (month == 8 && day > 28))
+		|| ((month%2) && day > 31) || (month == 2 && day > 28))
 	{
 		PRINT << PURPLE <<"Error:"<< GREEN <<" bad input";
 		PRINT << PURPLE << " => " << GREEN << date << RESET_LINE;
