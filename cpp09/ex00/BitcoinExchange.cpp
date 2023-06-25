@@ -26,7 +26,6 @@ BitcoinExchange::BitcoinExchange(std::string dataBase, std::string input)
 	char 			*str;
 	if (data.is_open())
 	{
-		// int i = 1;
 		while(std::getline(data, line))
 		{
 			if(line.compare("date,exchange_rate") == 0)
@@ -83,19 +82,80 @@ void	BitcoinExchange::parseTheFile(std::string input)
 
 	if (inputFile.is_open())
 	{
-		// int i = 1;
 		while(std::getline(inputFile, line))
 		{
 			if(line.compare("date | value") == 0)
 				continue;
 			date = line.substr(0,10); //check if the date is valid
+			if (line.size() < 14)
+			{
+				PRINT << PURPLE <<"Error:"<< GREEN <<"  bad input";
+				PRINT << PURPLE << " => " << GREEN << line << RESET_LINE;
+				continue;
+			}
+			if (invalidDate(date))
+				continue;
 			value = std::strtod(line.substr(line.find('|')+1).c_str(), &str); //check if the value is valid
-			if(dataBase.find(date) != dataBase.end())
-				PRINT << GREEN << date << PURPLE << " => " << GREEN << value << PURPLE << " = "<< GREEN << value * dataBase.find(date)->second << RESET_LINE;
-			else
-				PRINT << GREEN << date << PURPLE <<" -> not found"<< RESET_LINE;
+			if (invalidValue(value))
+				continue;
+			printOutput(date, value);
 		}
 	}
 	else
 		Utils::printMsg("Something wrong with your file", YELLOW);
+}
+
+void	BitcoinExchange::printOutput(std::string date, double value)
+{
+	if(dataBase.find(date) != dataBase.end())
+	{
+		PRINT << GREEN << date << PURPLE << " => ";
+		PRINT << GREEN << value << PURPLE << " = ";
+		PRINT << GREEN << value * dataBase.find(date)->second << RESET_LINE;
+	}
+	else
+	{
+		std::pair<MAP::iterator, bool>  index;
+		index = dataBase.insert(std::make_pair(date,1));
+		MAP::iterator tmp = index.first;
+		if(index.first != dataBase.begin())
+		{
+			PRINT << GREEN << date << PURPLE << " => ";
+			PRINT << GREEN << value << PURPLE << " = ";
+			PRINT << GREEN << value * dataBase.find((*(--tmp)).first)->second << RESET_LINE;
+		}
+		dataBase.erase(date);
+	}
+}
+
+bool	BitcoinExchange::invalidDate(std::string date)
+{
+	int	year	= std::strtod(date.substr(0,4).c_str(), NULL);
+	int	month	= std::strtod(date.substr(5,2).c_str(), NULL);
+	int	day		= std::strtod(date.substr(8,2).c_str(), NULL);
+
+	if ((date.size() != 10) ||  year > 2023 || month > 12 || ((month%2) && day > 30)
+		|| ((month%2) && day > 31))
+	{
+		PRINT << PURPLE <<"Error:"<< GREEN <<"  bad input";
+		PRINT << PURPLE << " => " << GREEN << date << RESET_LINE;
+		return (true);
+	}
+	return false;
+}
+
+bool	BitcoinExchange::invalidValue(double value)
+{
+	// (void)value;
+	if (value < 0)
+	{
+		PRINT << PURPLE <<"Error:"<< GREEN <<" not a positive number." << RESET_LINE;
+		return (true);
+	}
+	if (value > INT32_MAX)
+	{
+		PRINT << PURPLE <<"Error:"<< GREEN <<" too large number." << RESET_LINE;
+		return (true);
+	}
+	return (false);
 }

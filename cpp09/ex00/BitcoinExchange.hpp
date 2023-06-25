@@ -4,6 +4,7 @@
 #include <fstream>
 #include <map>
 
+#define MAP std::map<std::string,double> 
 class BitcoinExchange
 {
 	public:
@@ -18,7 +19,10 @@ class BitcoinExchange
 		/*	*/
 		void	addToMap(std::string date, double rate);
 		void	parseTheFile(std::string input);
-};
+		void	printOutput(std::string date, double value);
+		bool	invalidDate(std::string date);
+		bool	invalidValue(double value);
+};		
 
 bool	isValidFile(std::string stringy);
 
