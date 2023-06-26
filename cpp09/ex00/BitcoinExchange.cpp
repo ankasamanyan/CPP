@@ -23,7 +23,10 @@ BitcoinExchange::BitcoinExchange(std::string dataBase, std::string input)
 		}
 	}
 	else
-		Utils::printMsg("Something wrong with your file", YELLOW);
+	{
+		Utils::printMsg("No Database!", ORANGE);
+		return ;
+	}
 	parseTheFile(input);
 }
 
@@ -90,7 +93,10 @@ void	BitcoinExchange::parseTheFile(std::string input)
 		}
 	}
 	else
+	{
 		Utils::printMsg("Something wrong with your file", YELLOW);
+		return ;
+	}
 }
 
 void	BitcoinExchange::printOutput(std::string date, double value)
