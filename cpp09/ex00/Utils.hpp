@@ -41,6 +41,42 @@ class Utils
 			}
 			return(true);
 		}
+
+		static int findChar(std::string input, char c)
+		{
+			int amount = 0;
+			for (std::string::const_iterator it = input.begin(); it != input.end(); ++it)
+		   		if (*it == c)
+		      		amount++;
+			return (amount);
+		}
+
+		static int noGarbageInDouble(int c)
+		{
+			if (!isnumber(c) && c != '.')
+				return (false);
+			return (true);
+		}
+
+		static bool	detectDouble(std::string input)
+		{
+			if(input[0] == '-' || input[0] == '+')
+				input = input.substr(1);
+			if (findChar(input,'.') == 1 && strCheck(input, noGarbageInDouble))
+			{
+				if (input[0] != '.' && input[input.size() - 1] != '.')
+					return (true);
+			}
+			return (false);
+		}
+		static bool detectInt(std::string input)
+		{
+			if(input[0] == '-' || input[0] == '+')
+				input = input.substr(1);
+			if (strCheck(input, isnumber))
+				return (true);
+			return (false);
+		}
 };
 
 #endif

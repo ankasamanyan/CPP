@@ -75,7 +75,7 @@ void	BitcoinExchange::parseTheFile(std::string input)
 			return ;
 		while(std::getline(inputFile, line))
 		{
-			if(line.compare("date | value") == 0)
+			if(line.compare("date | value") == 0 || line.size() < 14)
 				continue;
 			date = line.substr(0,10);
 			if (invalidDate(date))
@@ -118,6 +118,11 @@ void	BitcoinExchange::printOutput(std::string date, double value)
 			PRINT << GREEN << value << PURPLE << " = ";
 			PRINT << GREEN << value * dataBase.find((*(--tmp)).first)->second << RESET_LINE;
 		}
+		else
+		{
+			PRINT << PURPLE <<"Error:"<< GREEN <<" bad input";
+			PRINT << PURPLE << " => " << GREEN << date << RESET_LINE;
+		}
 		dataBase.erase(date);
 	}
 }
@@ -129,8 +134,8 @@ bool	BitcoinExchange::invalidDate(std::string date)
 	int	day		= std::strtod(date.substr(8,2).c_str(), NULL);
 
 	if ((date.size() != 10)  || year < 2009 || month < 1 || day < 1 
-		||  year > 2023 || month > 12 || ((month%2) && day > 30)
-		|| ((month%2) && day > 31) || (month == 2 && day > 28))
+		||  year > 2023 || month > 12 || (!(month%2) && day > 30)
+		|| ((month%2) && day > 31) || day > 31 || (month == 2 && day > 28))
 	{
 		PRINT << PURPLE <<"Error:"<< GREEN <<" bad input";
 		PRINT << PURPLE << " => " << GREEN << date << RESET_LINE;
@@ -164,7 +169,7 @@ bool	BitcoinExchange::ifWrongFormat(std::string line)
 	if(Utils::strCheck(year, isnumber) && (line.substr(4,1).compare("-") == 0)
 		&& Utils::strCheck(month, isnumber) && (line.substr(7,1).compare("-") == 0)
 		&& Utils::strCheck(day, isnumber) && (line.substr(10,3).compare(" | ") == 0)
-		&& Utils::strCheck(value, isnumber))
+		&& (Utils::detectDouble(value) || Utils::detectInt(value)))
 		return (false);
 	return (true);
 }
