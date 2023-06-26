@@ -22,7 +22,9 @@ class BitcoinExchange
 		void	printOutput(std::string date, double value);
 		bool	invalidDate(std::string date);
 		bool	invalidValue(double value);
-};		
+		bool	ifWrongFormat(std::string line);
+		bool	wrongFirstLine(std::ifstream &inputFile, std::string &line);
+};
 
 bool	isValidFile(std::string stringy);
 

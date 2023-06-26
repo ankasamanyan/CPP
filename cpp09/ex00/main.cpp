@@ -15,6 +15,5 @@ int main(int argc, char** argv)
 		Utils::printMsg("Invalid file!", PINK);
 		return (-1);
 	}
-	// parseTheFile(argv[1]);
 	return 0;
 }
