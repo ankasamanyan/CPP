@@ -55,10 +55,9 @@ void	BitcoinExchange::addToMap(std::string date, double rate)
 
 bool	isValidFile(std::string stringy)
 {
-	if (stringy.substr(stringy.find('.')+1).compare("txt") == 0)
+	if (stringy.substr(stringy.find('.')+1).compare("csv") == 0)
 		return (true);
-	else 
-		return (false);
+	return (false);
 }
 
 void	BitcoinExchange::parseTheFile(std::string input)
