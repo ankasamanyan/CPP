@@ -7,8 +7,8 @@
 #define MAP std::map<std::string,double> 
 class BitcoinExchange
 {
-	public:
-		std::map<std::string, double>	dataBase;
+	private:
+		std::map<std::string, double>	_dataBase;
 
 	public:
 		BitcoinExchange();

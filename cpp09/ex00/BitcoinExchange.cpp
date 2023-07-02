@@ -4,9 +4,9 @@ BitcoinExchange::BitcoinExchange(/* args */)
 {
 }
 
-BitcoinExchange::BitcoinExchange(std::string dataBase, std::string input)
+BitcoinExchange::BitcoinExchange(std::string _dataBase, std::string input)
 {
-	std::ifstream	data(dataBase);
+	std::ifstream	data(_dataBase);
 	std::string		line;
 	std::string		date;
 	double			rate;
@@ -38,7 +38,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
 {
-	dataBase = copy.dataBase;
+	_dataBase = copy._dataBase;
 	return (*this);
 }
 
@@ -48,7 +48,7 @@ BitcoinExchange::~BitcoinExchange()
 
 void	BitcoinExchange::addToMap(std::string date, double rate)
 {
-	dataBase.insert(std::make_pair(date, rate));
+	_dataBase.insert(std::make_pair(date, rate));
 }
 
 /*      */
@@ -100,29 +100,29 @@ void	BitcoinExchange::parseTheFile(std::string input)
 
 void	BitcoinExchange::printOutput(std::string date, double value)
 {
-	if(dataBase.find(date) != dataBase.end())
+	if(_dataBase.find(date) != _dataBase.end())
 	{
 		PRINT << GREEN << date << PURPLE << " => ";
 		PRINT << GREEN << value << PURPLE << " = ";
-		PRINT << GREEN << value * dataBase.find(date)->second << RESET_LINE;
+		PRINT << GREEN << value * _dataBase.find(date)->second << RESET_LINE;
 	}
 	else
 	{
 		std::pair<MAP::iterator, bool>  index;
-		index = dataBase.insert(std::make_pair(date,1));
+		index = _dataBase.insert(std::make_pair(date,1));
 		MAP::iterator tmp = index.first;
-		if(index.first != dataBase.begin())
+		if(index.first != _dataBase.begin())
 		{
 			PRINT << GREEN << date << PURPLE << " => ";
 			PRINT << GREEN << value << PURPLE << " = ";
-			PRINT << GREEN << value * dataBase.find((*(--tmp)).first)->second << RESET_LINE;
+			PRINT << GREEN << value * _dataBase.find((*(--tmp)).first)->second << RESET_LINE;
 		}
 		else
 		{
 			PRINT << PURPLE <<"Error:"<< GREEN <<" bad input";
 			PRINT << PURPLE << " => " << GREEN << date << RESET_LINE;
 		}
-		dataBase.erase(date);
+		_dataBase.erase(date);
 	}
 }
 
