@@ -38,4 +38,4 @@ push:
 	@echo $(PURPLE) ✨All added, commited and pushed✨ $(RESET)
 
 run: all
-	@./$(NAME) input.txt
+	@./$(NAME) 1 2 + 3 - 4 +
