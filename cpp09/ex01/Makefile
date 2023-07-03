@@ -38,4 +38,5 @@ push:
 	@echo $(PURPLE) ✨All added, commited and pushed✨ $(RESET)
 
 run: all
-	@./$(NAME) 1 2 + 3 - 4 +
+	@./$(NAME) "7 7 * 7 -"
+	

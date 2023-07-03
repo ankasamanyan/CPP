@@ -17,29 +17,11 @@
 
 // • Your program must be able to handle operations with these tokens: "+ - / *".
 
-
-// RPN::RPN(char **argv, int argc)
-// {
-// 	for (int i = 0; i < count; i++)
-// 	{
-// 		/* code */
-// 	}
-	
-	
-// }
-
-
 bool	is_sign(char element)
 {
 	if (element == '+' || element == '-' || element == '/' || element == '*')
 		return (true);
 	return (false);
-}
-
-bool	notSingularDigit(std::string stringy, std::string::iterator iter)
-{
-	if (isdigit(*iter) && *(iter + 1) && isdigit(*(iter + 1)))
-		return (true);
 }
 
 bool	inValidInput(std::string stringy)
@@ -59,21 +41,9 @@ bool	inValidInput(std::string stringy)
 			digitCount++;
 		if (is_sign(*iter))
 			signCount++;
+	}
 		if (digitCount - signCount != 1)
 			return (true);
-	}
-	
-	// if (argv)
-	// {
-	// 	for (int i = 1; i < argc; i++)
-	// 	{
-	// 		if (strlen(argv[i]) != 1)
-	// 			return (true);
-	// 		if (!isnumber(argv[i][0]) && !is_sign(argv[i][0]))
-	// 			return (true);
-	// 	}
-	// }
-
 	return (false);
 }
 
@@ -90,38 +60,27 @@ int	operation(char operation, int first, int second)
 	return -1;
 }
 
-// bool	test(std::string str, std::stack<int> data)
-// {
-// 	if (str.find(" ") > 1)
-// 		return (false);
-// 	if (is_sign(str[0]) && data.size() > 1)
-// 		return true;
-// 	if (isnumber(str[0]))
-// 		return true;
-// 	return false;
-// }
-
 void	reversePolishNotation(std::string stringy)
 {
-	int i = 0;
 	int oldTop = 0;
 	int result = -2;
 	std::stack<int> data;
 
-	PRINT << GREEN "before loop" << RESET_LINE;
-	while (i++ < argc && argv[i])
+	for (std::string::iterator it = stringy.begin(); it != stringy.end(); it++)
 	{
-		if (!is_sign(argv[i][0]))
-			data.push(atoi((const char *)argv[i]));
-		else
+		while (*it == ' ')
+			it++;
+		if(!is_sign(*it))
+			data.push(atoi(&*it));
+		else if (is_sign(*it))
 		{
 			oldTop = data.top();
 			data.pop();
-			result = operation(argv[i][0], oldTop, data.top());
+			result = operation(*it, oldTop, data.top());
 			data.top() = result;
 		}
-		PRINT << GREEN "Current top: " SKY << data.top() << GREEN ",  Argument: " SKY<< argv[i] << RESET_LINE;
+		PRINT << GREEN "Current top: " SKY << data.top() << GREEN ",  Argument: " SKY<< *it << RESET_LINE;
 	}
-		PRINT << GREEN "result " SKY << data.top()<< RESET_LINE;
+	PRINT << GREEN "result " SKY << data.top()<< RESET_LINE;
 }
 

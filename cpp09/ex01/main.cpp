@@ -13,6 +13,9 @@ int main(int argc, char *argv[])
 		Utils::printMsg("Invalid Input!", YELLOW);
 		return (-1);
 	}
-	reversePolishNotation(argv, argc);
+	reversePolishNotation(stringy);
 	return (0);
 }
+
+//"8 9 * 9 - 9 - 9 - 4 - 1 +"
+// "7 7 * 7 -"
