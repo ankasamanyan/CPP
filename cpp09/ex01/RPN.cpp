@@ -34,25 +34,16 @@ bool	inValidInput(std::string stringy)
 	for (std::string::iterator iter = stringy.begin(); iter != stringy.end(); iter++)
 	{
 		if (isdigit(*iter) && *(iter + 1) && isdigit(*(iter + 1)))
-		{
-			Utils::printMsg("double digit", PINK);
 			return (true);
-		}
 		if (!isdigit(*iter) && !is_sign(*iter) && !(*iter == ' '))
-		{
-			Utils::printMsg("invalid char", PURPLE);
 			return (true);
-		}
 		if (isdigit(*iter))
 			digitCount++;
 		if (is_sign(*iter))
 			signCount++;
 	}
 		if (digitCount - signCount != 1 || digitCount == 1)
-		{
-			Utils::printMsg("invalid digit/sign count", SKY);
 			return (true);
-		}
 	return (false);
 }
 
@@ -79,7 +70,7 @@ bool	reversePolishNotation(std::string stringy)
 	{
 		while (*it == ' ' && it+1 != stringy.end())
 			it++;
-		if (it + 1 == stringy.end())
+		if (it + 1 == stringy.end() && *(stringy.end() - 1) == ' ')
 			break;
 		if(!is_sign(*it))
 			data.push(atoi(&*it));
