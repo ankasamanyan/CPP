@@ -40,7 +40,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
 {
 	_dataBase = copy._dataBase;
 	return (*this);
-}
+ }
 
 BitcoinExchange::~BitcoinExchange()
 {
