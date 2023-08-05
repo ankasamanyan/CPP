@@ -69,7 +69,7 @@ class Utils
 			}
 			return (false);
 		}
-		static bool detectInt(std::string input)
+		bool detectInt(std::string input)
 		{
 			if(input[0] == '-' || input[0] == '+')
 				input = input.substr(1);
