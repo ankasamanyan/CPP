@@ -10,13 +10,14 @@ int main(int argc, char **argv)
 	unsigned long timeDeque;
 	
 	if(incorrectInput(argc, argv)) return 0;
+	intVector = fillContainer<std::vector<int> >(argc, argv);
+	printcContainer("Before:", intVector);
 	timeVector = getTime();
 	intVector = fillContainer<std::vector<int> >(argc, argv);
-	timeDeque = getTime();
-	intDeque = fillContainer<std::deque<int> >(argc, argv);
-	printcContainer("Before:", intVector);
 	theVectorMerger.mergeInsertSort(intVector, 2);
 	timeVector = getTime() - timeVector;
+	timeDeque = getTime();
+	intDeque = fillContainer<std::deque<int> >(argc, argv);
 	theDequeMerger.mergeInsertSort(intDeque, 2);
 	timeDeque = getTime() - timeDeque;
 	printcContainer("After: ", intVector);

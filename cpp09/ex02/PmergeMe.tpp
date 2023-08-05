@@ -7,28 +7,12 @@ bool	incorrectInput(int argc, char **argv)
 	}
 	for (int i = 1; i < argc; i++)
 	{	
-		if (!Utils::strCheck(argv[i], isnumber))
+		if (!Utils::strCheck(argv[i], isnumber) || strlen(argv[i]) < 1
+			|| atol(argv[i]) > std::numeric_limits<int>::max())
 		{
-			Utils::printMsg("Not a number", ORANGE);
+			Utils::printMsg("Incorrect Input!", ORANGE);
 			return true;
 		}
-		if (strlen(argv[i]) < 1)
-		{
-			Utils::printMsg("Empty string", ORANGE);
-			return true;
-		}
-		if (atol(argv[i]) > std::numeric_limits<int>::max())
-		{
-			Utils::printMsg("Int overflow", ORANGE);
-			return true;
-		}
-		
-		// if (!Utils::strCheck(argv[i], isnumber) || strlen(argv[i]) < 1
-		// 	|| atol(argv[i]) > std::numeric_limits<int>::max())
-		// {
-		// 	Utils::printMsg("Incorrect Input!", ORANGE);
-		// 	return true;
-		// }
 	}
 	return false;
 }
